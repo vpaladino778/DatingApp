@@ -1,3 +1,4 @@
+package Main;
 /**
  * 
  *  Main classs for Rowers Meet.
