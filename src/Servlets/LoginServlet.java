@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet{
 	        
 	        if(Validate.checkUser(email, pass))
 	        {
-	            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
+	            RequestDispatcher rs = request.getRequestDispatcher("LandingPage");
 	            rs.forward(request, response);
 	        }
 	        else
