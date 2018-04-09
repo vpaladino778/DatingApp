@@ -9,24 +9,31 @@ import Main.Validate;
 import java.sql.*;
 
 public class LoginServlet extends HttpServlet{
-	 protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 	        response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();
 	        
 	        String email = request.getParameter("email");
 	        String pass = request.getParameter("pass");
+	        boolean validation = Validate.checkUser(email, pass);
 	        
-	        if(Validate.checkUser(email, pass))
+	        request.setAttribute("auth", validation);
+	        if(validation)
 	        {
-	            RequestDispatcher rs = request.getRequestDispatcher("LandingPage");
+	        	
+	            RequestDispatcher rs = request.getRequestDispatcher("/Home.jsp");
 	            rs.forward(request, response);
 	        }
 	        else
 	        {
-	           out.println("Username or Password incorrect");
-	           RequestDispatcher rs = request.getRequestDispatcher("index.html");
-	           rs.include(request, response);
+	        	
+	        	out.println("Username or Password incorrect");
+	        	RequestDispatcher rs = request.getRequestDispatcher("login.html");
+	        	rs.include(request, response);
+	           
 	        }
 	    }  
 }
