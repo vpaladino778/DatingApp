@@ -5,7 +5,7 @@ Username: root
 Password: password
 
 
-Primary Contributers:
+## Primary Contributers:
 - Vincent Paladino
 - Nicholas Pirrello
 - Jakub Wlodek
