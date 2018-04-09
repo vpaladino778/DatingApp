@@ -7,10 +7,16 @@ import java.sql.ResultSet;
 public class Validate {
     public static boolean checkUser(String email,String pass) 
     {
-     boolean st =false;
-     try{
+    	System.out.println(email);
+    	if(email.equals("Correct")) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+     //boolean st =false;
+     //try{
 	 //loading drivers for mysql
-        Class.forName("com.mysql.jdbc.Driver");
+       // Class.forName("com.mysql.jdbc.Driver");
 
 	 //creating connection with the database 
         /*Connection con=DriverManager.getConnection
@@ -22,10 +28,9 @@ public class Validate {
         ResultSet rs =ps.executeQuery();
         st = rs.next();*/
        
-     }catch(Exception e)
-     {
-         e.printStackTrace();
-     }
-	 return true;
+     //}catch(Exception e)
+     //{
+       //  e.printStackTrace();
+     //}
  }  
 }
