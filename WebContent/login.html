@@ -39,17 +39,21 @@
         <h2 class="form-signin-heading">Sign up Below!</h2>
         <div class="form-group" >
         	<label for="regEmail" class="sr-only">Email</label>
-        	<input type="email" id="regEmail" class="form-control" placeholder="E-mail" required autofocus>
+        	<input type="email" id="regEmail" name="regEmail" class="form-control" placeholder="E-mail" required autofocus>
         </div>
         
         <div class="form-group">
         	<label for="regPass" class="sr-only">Password</label>
-        	<input type="password" id="regPass" class="form-control" placeholder="Password" required>
+        	<input type="password" id="regPass" name="regPass1" class="form-control" placeholder="Password" required>
         </div>
         
         <div class="form-group">
         	<label for="regConfirmPass" class="sr-only">Confirm Password</label>
-        	<input type="password" id="regConfirmPass" class="form-control" placeholder="Confirm Password" required>
+        	<input type="password" id="regConfirmPass" name="regPass2" class="form-control" placeholder="Confirm Password" required>
+        </div>
+        <div class="form-group">
+        	<label for="SSN" class="sr-only">Social Security Number</label>
+        	<input type="SSN" id="regSSN" name="regSSN" class="form-control" placeholder="Social Security Number" required>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         <p> Already a member? <a href="#" onClick="$('#signup').fadeOut(100, function (){ $('#signin').fadeIn(100)});">Click Here!</a></p>
