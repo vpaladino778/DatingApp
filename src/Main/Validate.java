@@ -15,7 +15,7 @@ public class Validate {
 
 					//creating connection with the database 
 					Connection con=DriverManager.getConnection
-							("jdbc:mysql:/ /mysql-305project.cwetgjbvvo5t.us-west-2.rds.amazonaws.com:3306","root","password");
+							("jdbc:mysql://mysql-305project.cwetgjbvvo5t.us-west-2.rds.amazonaws.com:3306/DatingDB","root","password");
 					PreparedStatement ps =con.prepareStatement
 							("select * from Person where Email=? and Password=?");
 					ps.setString(1, email);
@@ -26,6 +26,7 @@ public class Validate {
 		{
 			e.printStackTrace();
 		}
+		
 		return st;
 
 	}  

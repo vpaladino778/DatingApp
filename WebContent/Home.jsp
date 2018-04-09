@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>Welcome to the page <%= request.getParameter("email") %></p>
+	<p>Welcome to the page <%= request.getParameter("loginEmail") %></p>
 	<p>Auth? <%= request.getAttribute("auth") %></p>
 </body>
 </html>
