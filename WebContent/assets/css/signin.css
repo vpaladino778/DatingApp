@@ -1,9 +1,9 @@
 @charset "ISO-8859-1";
 
-.form-signin {
+#signin, #signup {
   max-width: 330px;
   padding: 30px;
   margin: 0 auto;
-  border-radius 25px;
+  border-radius 10px;
   border: 1px solid dimgrey;
 }

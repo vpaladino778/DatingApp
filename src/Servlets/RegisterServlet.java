@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import Main.NewRegister;
 
 import java.sql.*;
-public class RegisterServlet {
+public class RegisterServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
