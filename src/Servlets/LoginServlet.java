@@ -4,9 +4,11 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import Main.ProfileList;
 import Main.Validate;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class LoginServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -24,8 +26,10 @@ public class LoginServlet extends HttpServlet{
 	        request.setAttribute("auth", validation);
 	        if(validation)
 	        {
+	        	ArrayList<String> profileList = ProfileList.getProfileList(email);
 	        	
-	            RequestDispatcher rs = request.getRequestDispatcher("/Home.jsp");
+	        	request.setAttribute("pList", profileList);
+	            RequestDispatcher rs = request.getRequestDispatcher("/ProfileSelection.jsp");
 	            rs.forward(request, response);
 	        }
 	        else
