@@ -13,6 +13,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/Stony Brook/Spring 2018/CSE 305/mysql-connector-java-8.0.11/mysql-connector-java-8.0.11.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 5.1/mysql-connector-java-5.1.45-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
