@@ -17,7 +17,7 @@ public class EditProfileServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+      
         String profileID = request.getParameter("regID");
         int age  = Integer.parseInt(request.getParameter("regAge"));
         int dars  = Integer.parseInt(request.getParameter("regDars"));
