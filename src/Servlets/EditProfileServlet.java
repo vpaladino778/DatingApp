@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Main.EditProfile;
 import Main.NewRegister;
+import Main.UserDat;
 
 public class EditProfileServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +18,6 @@ public class EditProfileServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-      
         String profileID = request.getParameter("regID");
         int age  = Integer.parseInt(request.getParameter("regAge"));
         int dars  = Integer.parseInt(request.getParameter("regDars"));
@@ -28,7 +28,8 @@ public class EditProfileServlet {
         String hobbies = request.getParameter("regHobbies");
         String hair = request.getParameter("regHair");
         int weight  = Integer.parseInt(request.getParameter("regWeight"));
-        boolean validation = EditProfile.editprofile(profileID, age, dars, dare, dgr, gender, hobbies, height, weight, hair);
+        String SSN = UserDat.ps1.getSSN();
+        boolean validation = EditProfile.editprofile(SSN, profileID, age, dars, dare, dgr, gender, hobbies, height, weight, hair);
 
         
         request.setAttribute("auth", validation);
