@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class EditProfile {
 
-	public static boolean editprofile(String profileID, int age, int dars, int dare, int dgr, String gender, String hobbies, int height, int weight, String hair) {
+	public static boolean editprofile(String SSN, String profileID, int age, int dars, int dare, int dgr, String gender, String hobbies, int height, int weight, String hair) {
 		boolean st = false;
 		if(age<18) {
 			return false;
@@ -32,7 +32,7 @@ public class EditProfile {
 					}
 				}
 			}
-			PreparedStatement ps4 = con.prepareStatement("INSERT INTO Profile(ProfileID, Age, DatingAgeRangeStart, DatingAgeRangeEnd, DatingGeoRange, M_F, Hobbies, Height, Weight, HairColor , LastModDate) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps4 = con.prepareStatement("UPDATE Profile SET ProfileID = ?, Age = ?, DatingAgeRangeStart = ?, DatingAgeRangeEnd = ?, DatingGeoRange = ?, M_F = ?, Hobbies = ?, Height = ?, Weight = ?, HairColor = ?, LastModDate = ? WHERE OwnerSSN = ?");
 			Date date = new Date();
 			Object param = new java.sql.Timestamp(date.getTime());
 			ps4.setString(1, profileID);
@@ -46,6 +46,7 @@ public class EditProfile {
 			ps4.setInt(7, height);
 			ps4.setInt(8, weight);
 			ps4.setObject(11,param);
+			ps4.setString(12, SSN);
 			ps4.executeUpdate();
 			st = true;
 		}catch(Exception e) {
