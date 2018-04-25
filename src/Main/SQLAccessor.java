@@ -237,7 +237,7 @@ public class SQLAccessor {
 				+ "* FROM Profile WHERE Profile.ProfileID IN(SELECT Profile2 FROM SuggestedBy WHERE "
 				+ "SuggestedBy.Profile1 = ?) UNION SELECT * FROM Profile WHERE Profile.ProfileID "
 				+ "IN(SELECT ProfileC FROM Referral WHERE Referral.ProfileB = ?) UNION SELECT * "
-				+ "FROM Profile WHERE Profile.ProfileID IN(SELECT ProfileC FROM Referral WHERE Referral.ProfileA = ?)");
+				+ "FROM Profile WHERE Profile.ProfileID IN(SELECT ProfileB FROM Referral WHERE Referral.ProfileC = ?)");
 		ps.setString(0, p);
 		ps.setString(1, p);
 		ps.setString(2, p);
@@ -349,5 +349,42 @@ public class SQLAccessor {
 		}
 	}
 	
+	public ResultSet searchProfilesByLocation(String city) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile.OwnerSSN IN (SELECT SSN FROM Person WHERE Person.City = ?)");
+		ps.setString(0, city);
+		return ps.executeQuery();	
+	}
 	
+	public ResultSet mostActiveProfile() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT ProfileID, OwnerSSN, LastModDate "
+				+ "From Profile WHERE Profile.OwnerSSN In(SELECT "
+				+ "OwnerSSN FROM Profile WHERE Profile.LastModDate "
+				+ ">= ALL(SELECT LastModDate FROM Profile)");
+		return ps.executeQuery();
+	}
+	
+	public ResultSet getHighestRated() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile.OwnerSSN IN(SELECT SSN FROM User WHERE User.Rating>=ALL(SELECT Rating FROM User)");
+		return ps.executeQuery();
+	}
+	
+	public ResultSet getPopularGeoLocations() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT GeoLocation FROM Date WHERE GeoLocation IS NOT NULL GROUP BY GeoLocation ORDER BY COUNT(*) DESC LIMIT 3");
+		return ps.executeQuery();
+	}
+	
+	public ResultSet personalizedSuggestions(String profile1) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile.ProfileID "
+				+ "IN(SELECT Profile1 FROM SuggestedBy WHERE SuggestedBy.Profile2 = ?) UNION SELECT * "
+				+ "FROM Profile WHERE Profile.ProfileID IN(SELECT Profile2 FROM SuggestedBy WHERE "
+				+ "SuggestedBy.Profile1 = ?) UNION SELECT * FROM Profile WHERE Profile.ProfileID "
+				+ "IN(SELECT ProfileC FROM Referral WHERE Referral.ProfileB = ?) UNION SELECT * "
+				+ "FROM Profile WHERE Profile.ProfileID IN(SELECT ProfileB FROM Referral WHERE "
+				+ "Referral.ProfileC = ?");
+		ps.setString(0, profile1);
+		ps.setString(1, profile1);
+		ps.setString(2, profile1);
+		ps.setString(3, profile1);
+		return ps.executeQuery();
+	}
 }
