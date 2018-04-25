@@ -16,10 +16,11 @@ public class RegisterServlet extends HttpServlet{
 	        PrintWriter out = response.getWriter();
 	        
 	        String SSN = request.getParameter("regSSN");
+	        String profileID = request.getParameter("regProfileID");
 	        String email = request.getParameter("regEmail");
 	        String pass1 = request.getParameter("regPass1");
 	        String pass2 = request.getParameter("regPass2");
-	        boolean newProfileCreated = NewRegister.register(SSN, email, pass1, pass2);
+	        boolean newProfileCreated = NewRegister.register(SSN, profileID, email, pass1, pass2);
 	        
 	        //TODO: Go to the profile home screen
 	        

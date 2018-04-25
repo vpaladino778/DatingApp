@@ -24,55 +24,52 @@ public class SQLAccessor {
 	public void newEmployee(String SSN, String role, int hourlyRate, String pass, 
 			String fname, String lname, String email, String street, String city, 
 			String state, String zip, String phone) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,?,?)");
-		ps.setString(0, SSN);
-		ps.setString(1, role);
-		Date date = new Date();
-		Object param = new java.sql.Timestamp(date.getTime());
-		ps.setObject(2, param);
+		PreparedStatement ps = con.prepareStatement("INSERT INTO employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
+		ps.setString(1, SSN);
+		ps.setString(2, role);
 		ps.setInt(3, hourlyRate);
 		ps.executeUpdate();
 		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, FirstName, LastName, Email, Street, City, State, ZipCode, Phone) VALUES (?,?,?,?,?, ?, ?,?, ?,?)");
-		ps2.setString(0, SSN);
-		ps2.setString(1, pass);
-		ps2.setString(2, fname);
-		ps2.setString(3, lname);
-		ps2.setString(4, email);
-		ps2.setString(5, street);
-		ps2.setString(6, city);
-		ps2.setString(7, state);
-		ps2.setString(8, zip);
-		ps2.setString(9, phone);
+		ps2.setString(1, SSN);
+		ps2.setString(2, pass);
+		ps2.setString(3, fname);
+		ps2.setString(4, lname);
+		ps2.setString(5, email);
+		ps2.setString(6, street);
+		ps2.setString(7, city);
+		ps2.setString(8, state);
+		ps2.setString(9, zip);
+		ps2.setString(10, phone);
 		ps2.executeUpdate();
 	}
 	
 	// Update employee info
 	public void updateEmployee(String col, String val, String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("UPDATE Employee SET ? = ? WHERE SSN=?");
-		ps.setString(0, col);
-		ps.setString(1, val);
-		ps.setString(2, SSN);
+		ps.setString(1, col);
+		ps.setString(2, val);
+		ps.setString(3, SSN);
 		ps.executeUpdate();
 		PreparedStatement ps2 = con.prepareStatement("UPDATE Person SET ? = ? WHERE SSN = ?");
-		ps2.setString(0, col);
-		ps2.setString(1, val);
-		ps2.setString(2, SSN);
+		ps2.setString(1, col);
+		ps2.setString(2, val);
+		ps2.setString(3, SSN);
 		ps2.executeUpdate();
 	}
 	
 	public void deleteEmployee(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN = ?");
-		ps.setString(0, SSN);
+		ps.setString(1, SSN);
 		ps.executeUpdate();
 		PreparedStatement ps2 = con.prepareStatement("DELETE FROM Employee WHERE SSN = ?");
-		ps2.setString(0, SSN);
+		ps2.setString(2, SSN);
 		ps2.executeUpdate();
 	}
 	
 	public ResultSet monthlySalesReport(String year, String month) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Year(Date_Time)=? AND Month(Date_Time)=?");
-		ps.setString(0, year);
-		ps.setString(1, month);
+		ps.setString(1, year);
+		ps.setString(2, month);
 		ResultSet rs = ps.executeQuery();
 		return rs;
 	}
@@ -92,22 +89,22 @@ public class SQLAccessor {
 	
 	public ResultSet datesByDate(String date) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time=?");
-		ps.setString(0, date);
+		ps.setString(1, date);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet revenueByDate(String year, String month, String day) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT SUM(BookingFee) FROM date WHERE Year(Date_Time)=? AND Month(Date_Time)=? AND Day(Date_Time)=?");
-		ps.setString(0, year);
-		ps.setString(1, month);
-		ps.setString(2, day);
+		ps.setString(1, year);
+		ps.setString(2, month);
+		ps.setString(3, day);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet revenueByProfile(String profile) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT SUM(BookingFee) FROM Date WHERE Profile1=? OR Profile2=?");
-		ps.setString(0, profile);
 		ps.setString(1, profile);
+		ps.setString(2, profile);
 		return ps.executeQuery();
 	}
 	
@@ -130,8 +127,8 @@ public class SQLAccessor {
 				" Profile1 FROM Date WHERE Date.Profile2 = ?) UNION SELECT"+
 				" * FROM Profile WHERE Profile.ProfileID = ALL(SELECT"+
 				" Profile2 FROM Date WHERE Date.Profile1 = ?");
-		ps.setString(0, profile);
 		ps.setString(1, profile);
+		ps.setString(2, profile);
 		return ps.executeQuery();
 	}
 	
@@ -157,34 +154,31 @@ public class SQLAccessor {
 	
 	public void recordDate(String p1, String p2, String cr, String location, int booking) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Date(Profile1, Profile2, CustRep, Date_Time, Location, BookingFee) VALUES (?,?,?,?,?,?)");
-		ps.setString(0, p1);
-		ps.setString(1, p2);
-		ps.setString(2, cr);
+		ps.setString(1, p1);
+		ps.setString(2, p2);
+		ps.setString(3, cr);
 		Date date = new Date();
 		Object param = new java.sql.Timestamp(date.getTime());
-		ps.setObject(3, param);
-		ps.setString(4, location);
-		ps.setInt(5, booking);
+		ps.setObject(4, param);
+		ps.setString(5, location);
+		ps.setInt(6, booking);
 		ps.executeUpdate();
 	}
 	
-	public void addCustomer(String SSN, String email, String pass1) throws SQLException {
-		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, Email) VALUES (?,?,?)");
+	public void addCustomer(String SSN, String email, String profileID, String pass1) throws SQLException {
+		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, Email, DateOfLastAct) VALUES (?,?,?, NOW())");
 		ps2.setString(1, SSN);
 		ps2.setString(2, pass1);
 		ps2.setString(3, email);
 		ps2.executeUpdate();
 
-		PreparedStatement ps3 = con.prepareStatement("INSERT INTO User(SSN) VALUES (?)");
+		PreparedStatement ps3 = con.prepareStatement("INSERT INTO User(SSN, DateOfLastAct) VALUES (?, NOW())");
 		ps3.setString(1, SSN);
 		ps3.executeUpdate();
 
-		PreparedStatement ps4 = con.prepareStatement("INSERT INTO Profile(OwnerSSN, CreationDate, LastModDate) VALUES (?,?,?)");
-		Date date = new Date();
-		Object param = new java.sql.Timestamp(date.getTime());
-		ps4.setString(1, SSN);
-		ps4.setObject(2,param);
-		ps4.setObject(3, param);
+		PreparedStatement ps4 = con.prepareStatement("INSERT INTO Profile(ProfileID, OwnerSSN, CreationDate, LastModDate) VALUES (?, ?,NOW(),NOW())");
+		ps4.setString(1, profileID);
+		ps4.setString(2, SSN);
 		ps4.executeUpdate();
 	}
 	
@@ -209,7 +203,7 @@ public class SQLAccessor {
 	
 	public void deleteCustomer(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN=?");
-		ps.setString(0, SSN);
+		ps.setString(1, SSN);
 		ps.executeUpdate();
 	}
 	
@@ -238,10 +232,10 @@ public class SQLAccessor {
 				+ "SuggestedBy.Profile1 = ?) UNION SELECT * FROM Profile WHERE Profile.ProfileID "
 				+ "IN(SELECT ProfileC FROM Referral WHERE Referral.ProfileB = ?) UNION SELECT * "
 				+ "FROM Profile WHERE Profile.ProfileID IN(SELECT ProfileB FROM Referral WHERE Referral.ProfileC = ?)");
-		ps.setString(0, p);
 		ps.setString(1, p);
 		ps.setString(2, p);
 		ps.setString(3, p);
+		ps.setString(4, p);
 		return ps.executeQuery();
 	}
 	
@@ -252,89 +246,86 @@ public class SQLAccessor {
 		PreparedStatement ps = con.prepareStatement("UPDATE DATE SET User1Rating=CASE WHEN Profile1=? "
 				+ "THEN ? ELSE User1Rating END, User2Rating=CASE WHEN Profile2=? THEN ? "
 				+ "ELSE User2Rating END WHERE Profile1=? AND Profile2=? AND Date_Time=?");
-		ps.setString(0, profileRater);
-		ps.setInt(1,rating);
-		ps.setString(2, profileRater);
-		ps.setInt(3, rating);
-		ps.setString(4, profile1);
-		ps.setString(5, profile2);
+		ps.setString(1, profileRater);
+		ps.setInt(2,rating);
+		ps.setString(3, profileRater);
+		ps.setInt(4, rating);
+		ps.setString(5, profile1);
+		ps.setString(6, profile2);
 		Date date = new Date();
 		Object param = new java.sql.Timestamp(date.getTime());
-		ps.setObject(6, param);
+		ps.setObject(7, param);
 		ps.executeUpdate();
 	}
 	
 	public void makeDate(String profile1, String profile2, String date) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Date (Profile1, Profile2, Date_Time) VALUES (?, ?, ?)");
-		ps.setString(0, profile1);
-		ps.setString(1, profile2);
-		ps.setString(2, date);
-		ps.executeUpdate();
-	}
-	
-	public void makeGeoDate(String profile1, String profile2, String date, String location, String geoLocation) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO Date (Profile1, Profile2, Date_Time, Location, GeoLocation) VALUES (?, ?, ?, ?, ?)");
-		ps.setString(0, profile1);
-		ps.setString(1, profile2);
-		ps.setString(2, date);
-		ps.setString(3, location);
-		ps.setString(4, geoLocation);
-		ps.executeUpdate();
-	}
-	
-	public void cancelDate(String profile1, String profile2, String date) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("DELETE FROM Date WHERE Profile1=? AND Profile2=? AND Date_Time=?");
-		ps.setString(0, profile1);
-		ps.setString(1, profile2);
-		ps.setString(2, date);
-		ps.executeUpdate();
-	}
-	
-	public void commentOnDate(String comment, String profile1, String profile2, String date) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("UPDATE Date SET Comments=? WHERE Profile1=? AND Profile2=? AND Date_Time=?");
-		ps.setString(0, comment);
 		ps.setString(1, profile1);
 		ps.setString(2, profile2);
 		ps.setString(3, date);
 		ps.executeUpdate();
 	}
 	
+	public void makeGeoDate(String profile1, String profile2, String date, String location, String geoLocation) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Date (Profile1, Profile2, Date_Time, Location, GeoLocation) VALUES (?, ?, ?, ?, ?)");
+		ps.setString(1, profile1);
+		ps.setString(2, profile2);
+		ps.setString(3, date);
+		ps.setString(4, location);
+		ps.setString(5, geoLocation);
+		ps.executeUpdate();
+	}
+	
+	public void cancelDate(String profile1, String profile2, String date) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("DELETE FROM Date WHERE Profile1=? AND Profile2=? AND Date_Time=?");
+		ps.setString(1, profile1);
+		ps.setString(2, profile2);
+		ps.setString(3, date);
+		ps.executeUpdate();
+	}
+	
+	public void commentOnDate(String comment, String profile1, String profile2, String date) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("UPDATE Date SET Comments=? WHERE Profile1=? AND Profile2=? AND Date_Time=?");
+		ps.setString(1, comment);
+		ps.setString(2, profile1);
+		ps.setString(3, profile2);
+		ps.setString(4, date);
+		ps.executeUpdate();
+	}
+	
 	public void likeProfile(String liker, String likee) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO Likes (Liker, Likee, Date_Time) VALUES (?, ?, ?)");
-		ps.setString(0, liker);
-		ps.setString(1, likee);
-		Date date = new Date();
-		Object param = new java.sql.Timestamp(date.getTime());
-		ps.setObject(2, param);
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Likes (Liker, Likee, Date_Time) VALUES (?, ?, NOW())");
+		ps.setString(1, liker);
+		ps.setString(2, likee);
 		ps.executeUpdate();
 	}
 	
 	public void refferProfile(String profileA, String profileB, String profileC, String date) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Referral (ProfileA, ProfileB, ProfileC, Date_Time) VALUES (?, ?, ?, ?)");
-		ps.setString(0, profileA);
-		ps.setString(1, profileB);
-		ps.setString(2, profileC);
-		ps.setString(3, date);
+		ps.setString(1, profileA);
+		ps.setString(2, profileB);
+		ps.setString(3, profileC);
+		ps.setString(4, date);
 		ps.executeUpdate();
 	}
 	
 	public ResultSet viewPendingDates(String profile1, String profile2) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time >= NOW() AND Profile1=? OR Profile2=?");
-		ps.setString(0, profile1);
-		ps.setString(1, profile2);
+		ps.setString(1, profile1);
+		ps.setString(2, profile2);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet viewPastDates(String profile1, String profile2) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time < NOW() AND Profile1=? OR Profile2=?");
-		ps.setString(0, profile1);
-		ps.setString(1, profile2);
+		ps.setString(1, profile1);
+		ps.setString(2, profile2);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet viewFavorites(String liker)throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT Likee FROM Likes WHERE Liker=? GROUP BY Likee ORDER BY COUNT(Likee) DESC LIMIT 10");
-		ps.setString(0, liker);
+		ps.setString(1, liker);
 		return ps.executeQuery();
 	}
 	
@@ -344,14 +335,14 @@ public class SQLAccessor {
 		}
 		else {
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile."+feature+" = ?");
-			ps.setString(0, input);
+			ps.setString(1, input);
 			return ps.executeQuery();
 		}
 	}
 	
 	public ResultSet searchProfilesByLocation(String city) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile.OwnerSSN IN (SELECT SSN FROM Person WHERE Person.City = ?)");
-		ps.setString(0, city);
+		ps.setString(1, city);
 		return ps.executeQuery();	
 	}
 	
@@ -381,10 +372,10 @@ public class SQLAccessor {
 				+ "IN(SELECT ProfileC FROM Referral WHERE Referral.ProfileB = ?) UNION SELECT * "
 				+ "FROM Profile WHERE Profile.ProfileID IN(SELECT ProfileB FROM Referral WHERE "
 				+ "Referral.ProfileC = ?");
-		ps.setString(0, profile1);
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
 		ps.setString(3, profile1);
+		ps.setString(4, profile1);
 		return ps.executeQuery();
 	}
 }
