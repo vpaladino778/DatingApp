@@ -14,16 +14,24 @@
 		<link href="assets/css/profilelist.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="profile">
-			<p>Please select from the current profiles or creates a new one!</p>
-	
-			<c:forEach var="profiles" items="${pList}">
-				<div class="profileNodes" style="background-color:white;">
-  					<p class="text-center">${profiles}</p>
-  				</div>
-			</c:forEach>
-	
-			<button class="btn">Create New Profile</button>
+		
+		<div id="profileList">
+			<form action="Home.jsp" method="post" class="text-center profileForm">
+				<h3>Please select your profile</h3>
+				<input type="hidden" name="loginEmail" value="${param.loginEmail}">
+				<input type="hidden" name="auth" value="${auth}">
+				<c:forEach var="profiles" items="${pList}">
+					<input id="profile" type="Submit" name="Username" value="${profiles}">
+				</c:forEach>
+				<div class="text-center newProfiles">
+					<p>Don't have a profile yet?</p>
+					<input id="newProfile" type="Submit" name="NewProfile" value="Create new profile!">
+				</div>
+
+			</form>
+
+
 		</div>
+
 	</body>
 </html>

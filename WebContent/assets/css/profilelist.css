@@ -1,17 +1,18 @@
 @charset "ISO-8859-1";
-.profile {
-  max-width: 330px;
+#profileList {
+  max-width: 75%;
   padding: 30px;
   margin: 0 auto;
   border-radius 10px;
   border: 1px solid dimgrey;
 }
-.profileNode {
-  max-width: 330px;
-  padding: 30px;
-  paddding-top: 40px;
-  padding-bottom: 40px;
-  margin: 0 auto;
-  border-radius 10px;
-  border: 1px solid dimgrey;
+#profile {
+	width: 80%;
+	height: 80px;
+	margin-top: 40px;
+}
+
+.newProfiles {
+	margin: 0 auto;
+	margin-top: 40px;
 }
