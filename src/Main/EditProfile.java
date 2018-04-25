@@ -20,34 +20,8 @@ public class EditProfile {
 			return false;
 		}
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection
-					("jdbc:mysql://mysql-305project.cwetgjbvvo5t.us-west-2.rds.amazonaws.com:3306/DatingDB","root","password");
-			if(profileID!=null) {
-				PreparedStatement ps = con.prepareStatement("SELECT ProfileID FROM Profile");
-				ResultSet rs = ps.executeQuery();
-				while(rs.next()) {
-					if(rs.getString("ProfileID").compareTo(profileID)==0) {
-						return false;
-					}
-				}
-			}
-			PreparedStatement ps4 = con.prepareStatement("UPDATE Profile SET ProfileID = ?, Age = ?, DatingAgeRangeStart = ?, DatingAgeRangeEnd = ?, DatingGeoRange = ?, M_F = ?, Hobbies = ?, Height = ?, Weight = ?, HairColor = ?, LastModDate = ? WHERE OwnerSSN = ?");
-			Date date = new Date();
-			Object param = new java.sql.Timestamp(date.getTime());
-			ps4.setString(1, profileID);
-			ps4.setString(6, gender);
-			ps4.setString(9, hobbies);
-			ps4.setString(10, hair);
-			ps4.setInt(2, age);
-			ps4.setInt(3, dars);
-			ps4.setInt(4, dare);
-			ps4.setInt(5, dgr);
-			ps4.setInt(7, height);
-			ps4.setInt(8, weight);
-			ps4.setObject(11,param);
-			ps4.setString(12, SSN);
-			ps4.executeUpdate();
+			SQLAccessor sqlA = new SQLAccessor();
+			sqlA.updateCustomer(SSN, profileID, age, dars, dare, dgr, gender, hobbies, height, weight, hair);
 			st = true;
 		}catch(Exception e) {
 			e.printStackTrace();

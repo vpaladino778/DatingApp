@@ -29,23 +29,13 @@ public class EditProfileServlet {
         String hair = request.getParameter("regHair");
         int weight  = Integer.parseInt(request.getParameter("regWeight"));
         String SSN = UserDat.ps1.getSSN();
-        boolean validation = EditProfile.editprofile(SSN, profileID, age, dars, dare, dgr, gender, hobbies, height, weight, hair);
+        boolean successfulEdit = EditProfile.editprofile(SSN, profileID, age, dars, dare, dgr, gender, hobbies, height, weight, hair);
 
-        
-        request.setAttribute("auth", validation);
-        if(validation)
-        {
-        	
-            RequestDispatcher rs = request.getRequestDispatcher("/Home.jsp");
-            rs.forward(request, response);
-        }
-        else
-        {
-        	
-        	out.println("Username or Password incorrect");
-        	RequestDispatcher rs = request.getRequestDispatcher("login.html");
-        	rs.include(request, response);
-           
-        }
+        //TODO:
+        /**
+         * Need to make it go back to the regular profile page after
+         * 
+         * 
+         */
     } 
 }

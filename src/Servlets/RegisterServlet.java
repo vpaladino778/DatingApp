@@ -19,23 +19,10 @@ public class RegisterServlet extends HttpServlet{
 	        String email = request.getParameter("regEmail");
 	        String pass1 = request.getParameter("regPass1");
 	        String pass2 = request.getParameter("regPass2");
-	        boolean validation = NewRegister.register(SSN, email, pass1, pass2);
-
+	        boolean newProfileCreated = NewRegister.register(SSN, email, pass1, pass2);
 	        
-	        request.setAttribute("auth", validation);
-	        if(validation)
-	        {
-	        	
-	            RequestDispatcher rs = request.getRequestDispatcher("/Home.jsp");
-	            rs.forward(request, response);
-	        }
-	        else
-	        {
-	        	
-	        	out.println("Username or Password incorrect");
-	        	RequestDispatcher rs = request.getRequestDispatcher("login.html");
-	        	rs.include(request, response);
-	           
-	        }
+	        //TODO: Go to the profile home screen
+	        
+	        
 	    }  
 }
