@@ -28,6 +28,7 @@ public class EditProfileServlet {
         String hobbies = request.getParameter("regHobbies");
         String hair = request.getParameter("regHair");
         int weight  = Integer.parseInt(request.getParameter("regWeight"));
+        UserDat.ps1.setSSN("123-64-7693");
         String SSN = UserDat.ps1.getSSN();
         boolean successfulEdit = EditProfile.editprofile(SSN, profileID, age, dars, dare, dgr, gender, hobbies, height, weight, hair);
 
