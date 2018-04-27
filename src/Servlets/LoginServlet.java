@@ -30,9 +30,6 @@ public class LoginServlet extends HttpServlet{
 	        	ArrayList<String> profileList = ProfileList.getProfileList(email);  	
 	        	request.setAttribute("pList", profileList);
 	            RequestDispatcher rs = request.getRequestDispatcher("/ProfileSelection.jsp");
-	        	String SSN = Validate.findSSN(email, pass);
-	        	UserDat.ps1 = new ProfileSignedIn(SSN, email);
-
 	            rs.forward(request, response);
 	            
 	        }

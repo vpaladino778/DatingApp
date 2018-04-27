@@ -2,5 +2,5 @@ package Main;
 
 public class UserDat {
 
-	public static ProfileSignedIn ps1;
+	public static ProfileSignedIn ps1 = new ProfileSignedIn(null,null);
 }
