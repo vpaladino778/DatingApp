@@ -166,7 +166,7 @@ public class SQLAccessor {
 	}
 	
 	public void addCustomer(String SSN, String email, String profileID, String pass1) throws SQLException {
-		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, Email, DateOfLastAct) VALUES (?,?,?, NOW())");
+		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, Email) VALUES (?,?,?)");
 		ps2.setString(1, SSN);
 		ps2.setString(2, pass1);
 		ps2.setString(3, email);
@@ -182,22 +182,18 @@ public class SQLAccessor {
 		ps4.executeUpdate();
 	}
 	
-	public void updateCustomer(String SSN, String profileID, int age, int dars, int dare, int dgr, String gender, String hobbies, int height, int weight, String hair) throws SQLException {
-		PreparedStatement ps4 = con.prepareStatement("UPDATE Profile SET ProfileID = ?, Age = ?, DatingAgeRangeStart = ?, DatingAgeRangeEnd = ?, DatingGeoRange = ?, M_F = ?, Hobbies = ?, Height = ?, Weight = ?, HairColor = ?, LastModDate = ? WHERE OwnerSSN = ?");
-		Date date = new Date();
-		Object param = new java.sql.Timestamp(date.getTime());
-		ps4.setString(1, profileID);
-		ps4.setString(6, gender);
-		ps4.setString(9, hobbies);
-		ps4.setString(10, hair);
-		ps4.setInt(2, age);
-		ps4.setInt(3, dars);
-		ps4.setInt(4, dare);
-		ps4.setInt(5, dgr);
+	public void updateCustomer(String SSN, int age, int dars, int dare, int dgr, String gender, String hobbies, int height, int weight, String hair) throws SQLException {
+		PreparedStatement ps4 = con.prepareStatement("UPDATE Profile SET Age = ?, DatingAgeRangeStart = ?, DatingAgeRangeEnd = ?, DatingGeoRange = ?, M_F = ?, Hobbies = ?, Height = ?, Weight = ?, HairColor = ?, LastModDate = NOW() WHERE OwnerSSN = ?");
+		ps4.setInt(1, age);
+		ps4.setInt(2, dars);
+		ps4.setInt(3, dare);
+		ps4.setInt(4, dgr);
+		ps4.setString(5, gender);
+		ps4.setString(6, hobbies);
 		ps4.setInt(7, height);
 		ps4.setInt(8, weight);
-		ps4.setObject(11,param);
-		ps4.setString(12, SSN);
+		ps4.setString(9, hair);
+		ps4.setString(10, SSN);
 		ps4.executeUpdate();
 	}
 	
