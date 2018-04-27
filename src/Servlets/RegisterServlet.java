@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet{
 	        String email = request.getParameter("regEmail");
 	        String pass1 = request.getParameter("regPass1");
 	        String pass2 = request.getParameter("regPass2");
-	        boolean newProfileCreated = NewRegister.register(SSN, email, profileID, pass1, pass2);
+	        boolean newProfileCreated = NewRegister.register(SSN, profileID, email, pass1, pass2);
 	        
 	        RequestDispatcher rs = request.getRequestDispatcher("/Edit_Profile.html");
 	        rs.forward(request, response);

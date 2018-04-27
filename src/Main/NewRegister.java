@@ -15,7 +15,7 @@ public class NewRegister {
 		}
 		try {
 			SQLAccessor sqlA = new SQLAccessor();
-			sqlA.addCustomer(SSN, profileID, email, pass1);
+			sqlA.addCustomer(SSN, email, profileID, pass1);
 			System.out.println("Reached this point");
 			UserDat.ps1.SSN = SSN;
 			UserDat.ps1.email = email;
