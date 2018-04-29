@@ -22,16 +22,16 @@
 			<h3><span style="background-color: #000080; color: #ff0000;">This is the information that other users can see</span></h3>
 			<hr />
 			<h3>Personal Information:</h3>
-			<p>ProfileID: <c:out value="${param.profileID}"/></p>
-			<p>Email: <c:out value="${param.loginEmail}"/></p>
-			<p>Age: <c:out value="${param.age}"/></p>
-			<p>Dating age Range Start: <c:out value="${param.dars}"/>, End: <c:out value="${param.dare}"/></p>
+			<p>ProfileID: <c:out value="${profileID}"/></p>
+			<p>Email: <c:out value="${loginEmail}"/></p>
+			<p>Age: <c:out value="${age}"/></p>
+			<p>Dating age Range Start: <c:out value="${dars}"/>, End: <c:out value="${dare}"/></p>
 			<p>Dating Geo Range: <c:out value="${param.dgr}"/></p>
-			<p>Gender: <c:out value="${param.gender}"/></p>
-			<p>Hobbies: <c:out value="${param.hobbies}"/></p>
-			<p>Height: <c:out value="${param.height}"/></p>
-			<p>Weight: <c:out value="${param.weight}"/></p>
-			<p>Hair Color: <c:out value="${param.hair}"/></p>
+			<p>Gender: <c:out value="${gender}"/></p>
+			<p>Hobbies: <c:out value="${hobbies}"/></p>
+			<p>Height: <c:out value="${height}"/></p>
+			<p>Weight: <c:out value="${weight}"/></p>
+			<p>Hair Color: <c:out value="${hair}"/></p>
 		</form>
 		<form action = "Edit_Profile.html" method = "post" class="text-center">
 			<button type="submit">Edit your profile!</button>
