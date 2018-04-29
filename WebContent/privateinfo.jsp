@@ -21,15 +21,12 @@
 			<h3><span style="background-color: #000080; color: #ff0000;">This is the information that other users cannot see</span></h3>
 			<hr />
 			<h3>Private Information:</h3>
-			<p>SSN: <c:out value="${param.SSN}"/></p>
-			<p>Email: <c:out value="${param.email}"/></p>
-			<p>Phone: <c:out value="${param.phone}"/></p>
-			<p>Street, City, State, Zip: <c:out value="${param.street} ${param.city} ${param.state} ${param.zip}"/></p>
+			<p>SSN: <c:out value="${SSN}"/></p>
+			<p>Email: <c:out value="${email}"/></p>
+			<p>Phone: <c:out value="${phone}"/></p>
+			<p>Street, City, State, Zip: <c:out value="${street} ${city} ${state} ${zip}"/></p>
 		</form>
-		<form action="openhome" method = "post" class = "text-center">
-			<button type = "submit">Go Back</button>
-		</form>
-		<form action="changepass" method="post" class="text-center">
+		<form action="change_pass.html" method="post" class="text-center">
 			<button type = "submit">Change your password!</button>
 		</form>
 	</div>
