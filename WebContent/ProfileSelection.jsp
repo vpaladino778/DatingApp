@@ -16,7 +16,7 @@
 	<body>
 		
 		<div id="profileList">
-			<form action="Home.jsp" method="post" class="text-center profileForm">
+			<form action="profileList" method="post" class="text-center profileForm">
 				<h3>Please select your profile</h3>
 				<input type="hidden" name="loginEmail" value="${param.loginEmail}">
 				<input type="hidden" name="auth" value="${auth}">

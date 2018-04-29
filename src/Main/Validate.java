@@ -41,7 +41,8 @@ public class Validate {
 			ps.setString(1, email);
 			ps.setString(2, pass);
 			ResultSet rs =ps.executeQuery();
-			String SSN = rs.getString(0);
+			rs.next();
+			String SSN = rs.getString(1);
 			return SSN;
 		}catch(Exception e) {
 			e.printStackTrace();
