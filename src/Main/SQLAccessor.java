@@ -393,4 +393,8 @@ public class SQLAccessor {
 		ps.setString(4, profile1);
 		return ps.executeQuery();
 	}
+
+	public Connection getConnection() {
+		return con;
+	}
 }

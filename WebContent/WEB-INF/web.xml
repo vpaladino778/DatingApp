@@ -33,6 +33,10 @@
     	<servlet-name>editprofile</servlet-name>
     	<servlet-class>Servlets.EditProfileServlet</servlet-class>
     </servlet>
+        <servlet>
+    	<servlet-name>profiles</servlet-name>
+    	<servlet-class>Servlets.ProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>secondprof</servlet-name>
     	<url-pattern>/secondprof</url-pattern>
@@ -57,5 +61,8 @@
     	<servlet-name>viewprivate</servlet-name>
     	<url-pattern>/viewprivate</url-pattern>
     </servlet-mapping>
-    
+        <servlet-mapping>
+    	<servlet-name>profiles</servlet-name>
+    	<url-pattern>/profiles</url-pattern>
+    </servlet-mapping>
 </web-app>

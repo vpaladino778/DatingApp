@@ -43,6 +43,10 @@
 	<c:out value="${param.auth}"/>
 	<c:out value="${param.loginEmail}"/> -->
 		</form>
+		
+		<form action = "profiles" method = "post" class="text-center">
+			<button type="submit">Find Singles Near You!</button>
+		</form>
 	</div>
 </body>
 </html>
