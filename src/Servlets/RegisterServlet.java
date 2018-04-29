@@ -15,14 +15,22 @@ public class RegisterServlet extends HttpServlet{
 	        response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();
 	        
+	        String fname = request.getParameter("fname");
+	        String lname = request.getParameter("lname");
 	        String SSN = request.getParameter("regSSN");
 	        String profileID = request.getParameter("regProfileID");
 	        String email = request.getParameter("regEmail");
 	        String pass1 = request.getParameter("regPass1");
 	        String pass2 = request.getParameter("regPass2");
-	        boolean newProfileCreated = NewRegister.register(SSN, profileID, email, pass1, pass2);
+	        String street = request.getParameter("street");
+	        String city = request.getParameter("city");
+	        String state = request.getParameter("state");
+	        String zip = request.getParameter("zip");
+	        String phone = request.getParameter("phone");
+	        boolean newProfileCreated = NewRegister.register(SSN, profileID, email, pass1, pass2, fname, lname, street, city, state, zip, phone);
 	        
-	        //TODO: Go to the profile home screen
+	        RequestDispatcher rs = request.getRequestDispatcher("/Edit_Profile.html");
+	        rs.forward(request, response);
 	        
 	        
 	    }  

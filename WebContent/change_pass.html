@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+   	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="ISO-8859-1">
+	<title>Login</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="assets/css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="page-header">
+  <h1>Making New Profile<small>  Choose a new ProfileID</small></h1>
+</div>
+<br>
+<div id="signin" class="container signin">
+<form class="form-signin" method="post" action="changepass">
+        <h4 class="form-signin-heading">Please type the old password, then the new password twice.</h4>
+        <div class="form-group" >
+        	<label for="oldpass" class="sr-only">ProfileID </label>
+        	<input type="text" id="oldpass" name="oldpass" class="form-control" placeholder="Old Password" required autofocus>
+        </div>
+        <div class="form-group" >
+        	<label for="newpass" class="sr-only">ProfileID </label>
+        	<input type="text" id="newpass" name="newpass" class="form-control" placeholder="New Password" required autofocus>
+        </div>
+        <div class="form-group" >
+        	<label for="checknewpass" class="sr-only">ProfileID </label>
+        	<input type="text" id="checknewpass" name="checknewpass" class="form-control" placeholder="Check New Password" required autofocus>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+      </form>
+</div>

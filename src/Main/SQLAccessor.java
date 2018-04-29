@@ -152,6 +152,26 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
 	
+	public boolean updatePass(String oldPass, String pass1, String pass2) throws SQLException {
+		if(pass1.compareTo(pass2)!=0) {
+			System.out.println("new passwords don't match");
+			return false;
+		}
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.Password = ?");
+		ps.setString(1, oldPass);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			PreparedStatement ps2 = con.prepareStatement("UPDATE Person SET Password = ?");
+			ps2.setString(1, pass1);
+			ps2.executeUpdate();
+			return true;
+		}
+		else {
+			System.out.println("The old password was incorrect");
+			return false;
+		}
+	}
+	
 	public void recordDate(String p1, String p2, String cr, String location, int booking) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Date(Profile1, Profile2, CustRep, Date_Time, Location, BookingFee) VALUES (?,?,?,?,?,?)");
 		ps.setString(1, p1);
@@ -165,11 +185,18 @@ public class SQLAccessor {
 		ps.executeUpdate();
 	}
 	
-	public void addCustomer(String SSN, String email, String profileID, String pass1) throws SQLException {
-		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, Email, DateOfLastAct) VALUES (?,?,?, NOW())");
+	public void addCustomer(String SSN, String email, String profileID, String pass1, String fname, String lname, String street, String city, String state, String zip, String phone) throws SQLException {
+		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, FirstName, LastName, Street, City, State, Zipcode, Email, Telephone) VALUES (?,?,?,?,?,?,?,?,?,?)");
 		ps2.setString(1, SSN);
 		ps2.setString(2, pass1);
-		ps2.setString(3, email);
+		ps2.setString(3, fname);
+		ps2.setString(4, lname);
+		ps2.setString(5, street);
+		ps2.setString(6, city);
+		ps2.setString(7, state);
+		ps2.setString(8, zip);
+		ps2.setString(9, email);
+		ps2.setString(10, phone);
 		ps2.executeUpdate();
 
 		PreparedStatement ps3 = con.prepareStatement("INSERT INTO User(SSN, DateOfLastAct) VALUES (?, NOW())");
@@ -182,23 +209,38 @@ public class SQLAccessor {
 		ps4.executeUpdate();
 	}
 	
-	public void updateCustomer(String SSN, String profileID, int age, int dars, int dare, int dgr, String gender, String hobbies, int height, int weight, String hair) throws SQLException {
-		PreparedStatement ps4 = con.prepareStatement("UPDATE Profile SET ProfileID = ?, Age = ?, DatingAgeRangeStart = ?, DatingAgeRangeEnd = ?, DatingGeoRange = ?, M_F = ?, Hobbies = ?, Height = ?, Weight = ?, HairColor = ?, LastModDate = ? WHERE OwnerSSN = ?");
-		Date date = new Date();
-		Object param = new java.sql.Timestamp(date.getTime());
-		ps4.setString(1, profileID);
-		ps4.setString(6, gender);
-		ps4.setString(9, hobbies);
-		ps4.setString(10, hair);
-		ps4.setInt(2, age);
-		ps4.setInt(3, dars);
-		ps4.setInt(4, dare);
-		ps4.setInt(5, dgr);
+	public void updateCustomer(String SSN, int age, int dars, int dare, int dgr, String gender, String hobbies, int height, int weight, String hair) throws SQLException {
+		PreparedStatement ps4 = con.prepareStatement("UPDATE Profile SET Age = ?, DatingAgeRangeStart = ?, DatingAgeRangeEnd = ?, DatingGeoRange = ?, M_F = ?, Hobbies = ?, Height = ?, Weight = ?, HairColor = ?, LastModDate = NOW() WHERE OwnerSSN = ?");
+		ps4.setInt(1, age);
+		ps4.setInt(2, dars);
+		ps4.setInt(3, dare);
+		ps4.setInt(4, dgr);
+		ps4.setString(5, gender);
+		ps4.setString(6, hobbies);
 		ps4.setInt(7, height);
 		ps4.setInt(8, weight);
-		ps4.setObject(11,param);
-		ps4.setString(12, SSN);
+		ps4.setString(9, hair);
+		ps4.setString(10, SSN);
 		ps4.executeUpdate();
+	}
+	
+	public void secondProfile(String profileID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Profile(ProfileID, OwnerSSN, CreationDate, LastModDate) VALUES(?,?, NOW(), NOW())");
+		ps.setString(1, profileID);
+		ps.setString(2, UserDat.ps1.getSSN());
+		ps.executeUpdate();
+	}
+	
+	public ResultSet getProfileInfo(String profileID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile.ProfileID = ?");
+		ps.setString(1, profileID);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet getPrivateInfo(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN = ?");
+		ps.setString(1, SSN);
+		return ps.executeQuery();
 	}
 	
 	public void deleteCustomer(String SSN) throws SQLException {
@@ -377,5 +419,9 @@ public class SQLAccessor {
 		ps.setString(3, profile1);
 		ps.setString(4, profile1);
 		return ps.executeQuery();
+	}
+
+	public Connection getConnection() {
+		return con;
 	}
 }

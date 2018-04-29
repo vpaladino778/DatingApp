@@ -16,18 +16,33 @@
 	<body>
 		
 		<div id="profileList">
+<<<<<<< HEAD
 			<form action="profileList" method="post" class="text-center profileForm">
+=======
+			<form action="openhome" method="post" class="text-center profileForm">
+>>>>>>> 960b96d71eab9d3b2f2a8d1c8273b5a486aa4a0d
 				<h3>Please select your profile</h3>
+				<!-- <input type="hidden" name="loginEmail" value="${param.profileID}">
 				<input type="hidden" name="loginEmail" value="${param.loginEmail}">
-				<input type="hidden" name="auth" value="${auth}">
+				<input type="hidden" name="loginEmail" value="${param.dars}">
+				<input type="hidden" name="loginEmail" value="${param.dare}">
+				<input type="hidden" name="loginEmail" value="${param.dgr}">
+				<input type="hidden" name="loginEmail" value="${param.gender}">
+				<input type="hidden" name="loginEmail" value="${param.hobbies}">
+				<input type="hidden" name="loginEmail" value="${param.height}">
+				<input type="hidden" name="loginEmail" value="${param.weight}">
+				<input type="hidden" name="loginEmail" value="${param.hair}">
+				<input type="hidden" name="auth" value="${auth}">-->
 				<c:forEach var="profiles" items="${pList}">
 					<input id="profile" type="Submit" name="Username" value="${profiles}">
 				</c:forEach>
+
+			</form>
+			<form action = "second_prof.html">
 				<div class="text-center newProfiles">
 					<p>Don't have a profile yet?</p>
 					<input id="newProfile" type="Submit" name="NewProfile" value="Create new profile!">
 				</div>
-
 			</form>
 
 

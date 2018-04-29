@@ -38,6 +38,14 @@
 <form class="form-signin" method="post" action="register">
         <h2 class="form-signin-heading">Sign up Below!</h2>
         <br>
+        <div class="form-group">
+        	<label for="fname" class="sr-only">First Name</label>
+        	<input type="text" id="fname" name="fname" class="form-control" placeholder="First Name" size="11" required>
+        </div>
+        <div class="form-group">
+        	<label for="lname" class="sr-only">Last Name</label>
+        	<input type="text" id="lname" name="lname" class="form-control" placeholder="Last Name" size="11" required>
+        </div>
         <div class="form-group" >
         	<label for="regEmail" class="sr-only">Email</label>
         	<input type="email" id="regEmail" name="regEmail" class="form-control" placeholder="E-mail" required autofocus>
@@ -50,15 +58,35 @@
         	<label for="regPass" class="sr-only">Password</label>
         	<input type="password" id="regPass" name="regPass1" class="form-control" placeholder="Password" required>
         </div>
-        
         <div class="form-group">
         	<label for="regConfirmPass" class="sr-only">Confirm Password</label>
         	<input type="password" id="regConfirmPass" name="regPass2" class="form-control" placeholder="Confirm Password" required>
         </div>
         <div class="form-group">
+        	<label for="street" class="sr-only">Street</label>
+        	<input type="text" id="street" name="street" class="form-control" placeholder="Street" size="11" required>
+        </div>
+        <div class="form-group">
+        	<label for="city" class="sr-only">City</label>
+        	<input type="text" id="city" name="city" class="form-control" placeholder="City" size="11" required>
+        </div>
+        <div class="form-group">
+        	<label for="state" class="sr-only">State</label>
+        	<input type="text" id="state" name="state" class="form-control" placeholder="State" size="11" required>
+        </div>
+        <div class="form-group">
+        	<label for="zip" class="sr-only">Zipcode</label>
+        	<input type="text" id="zip" name="zip" class="form-control" placeholder="Zipcode" size="11" required>
+        </div>
+        <div class="form-group">
+        	<label for="phone" class="sr-only">Phone Number</label>
+        	<input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" size="11" required>
+        </div>
+        <div class="form-group">
         	<label for="SSN" class="sr-only">Social Security Number</label>
         	<input type="text" id="regSSN" name="regSSN" class="form-control" placeholder="Social Security Number" size="11" required>
         </div>
+        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         <br>
         <p> Already a member? <a href="#" onClick="$('#signup').fadeOut(100, function (){ $('#signin').fadeIn(100)});">Click Here!</a></p>
