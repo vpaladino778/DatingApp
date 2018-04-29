@@ -25,6 +25,7 @@ public class ViewPrivateServlet extends HttpServlet{
 	        ResultSet rs;
 			try {
 				rs = sqlA.getPrivateInfo(UserDat.ps1.getSSN());
+				System.out.println(UserDat.ps1.getProfileID());
 				rs.next();
 		        String SSN = rs.getString("SSN");
 		        String email = rs.getString("Email");

@@ -152,6 +152,26 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
 	
+	public boolean updatePass(String oldPass, String pass1, String pass2) throws SQLException {
+		if(pass1.compareTo(pass2)!=0) {
+			System.out.println("new passwords don't match");
+			return false;
+		}
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.Password = ?");
+		ps.setString(1, oldPass);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			PreparedStatement ps2 = con.prepareStatement("UPDATE Person SET Password = ?");
+			ps2.setString(1, pass1);
+			ps2.executeUpdate();
+			return true;
+		}
+		else {
+			System.out.println("The old password was incorrect");
+			return false;
+		}
+	}
+	
 	public void recordDate(String p1, String p2, String cr, String location, int booking) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Date(Profile1, Profile2, CustRep, Date_Time, Location, BookingFee) VALUES (?,?,?,?,?,?)");
 		ps.setString(1, p1);
@@ -165,11 +185,18 @@ public class SQLAccessor {
 		ps.executeUpdate();
 	}
 	
-	public void addCustomer(String SSN, String email, String profileID, String pass1) throws SQLException {
-		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, Email) VALUES (?,?,?)");
+	public void addCustomer(String SSN, String email, String profileID, String pass1, String fname, String lname, String street, String city, String state, String zip, String phone) throws SQLException {
+		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, FirstName, LastName, Street, City, State, Zipcode, Email, Telephone) VALUES (?,?,?,?,?,?,?,?,?,?)");
 		ps2.setString(1, SSN);
 		ps2.setString(2, pass1);
-		ps2.setString(3, email);
+		ps2.setString(3, fname);
+		ps2.setString(4, lname);
+		ps2.setString(5, street);
+		ps2.setString(6, city);
+		ps2.setString(7, state);
+		ps2.setString(8, zip);
+		ps2.setString(9, email);
+		ps2.setString(10, phone);
 		ps2.executeUpdate();
 
 		PreparedStatement ps3 = con.prepareStatement("INSERT INTO User(SSN, DateOfLastAct) VALUES (?, NOW())");

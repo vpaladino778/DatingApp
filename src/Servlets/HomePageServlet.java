@@ -24,6 +24,7 @@ public class HomePageServlet extends HttpServlet{
 	        SQLAccessor sqlA = new SQLAccessor();
 	        ResultSet rs;
 			try {
+				System.out.println("Entering user "+UserDat.ps1.getProfileID()+"'s profile page");
 				rs = sqlA.getProfileInfo(UserDat.ps1.getProfileID());
 				rs.next();
 		        String profileID = UserDat.ps1.getProfileID();

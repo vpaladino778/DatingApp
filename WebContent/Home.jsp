@@ -17,31 +17,32 @@
 </head>
 <body>
 	<div id="profileInfo">
-		<form method = "post">
-			<h1><span style="background-color: #000080; color: #ff0000;">Welcome to your dating profile!</span></h1>
-			<h3><span style="background-color: #000080; color: #ff0000;">This is the information that other users can see</span></h3>
+		<form method = "post" class = "text-center">
+			<h1><span style="background-color: #000080; color: #ff0000;">   Welcome to your dating profile!</span></h1>
+			<h3><span style="background-color: #000080; color: #ff0000;">   This is the information that other users can see</span></h3>
 			<hr />
-			<h3>Personal Information:</h3>
-			<p>ProfileID: <c:out value="${profileID}"/></p>
-			<p>Email: <c:out value="${loginEmail}"/></p>
-			<p>Age: <c:out value="${age}"/></p>
-			<p>Dating age Range Start: <c:out value="${dars}"/>, End: <c:out value="${dare}"/></p>
-			<p>Dating Geo Range: <c:out value="${param.dgr}"/></p>
-			<p>Gender: <c:out value="${gender}"/></p>
-			<p>Hobbies: <c:out value="${hobbies}"/></p>
-			<p>Height: <c:out value="${height}"/></p>
-			<p>Weight: <c:out value="${weight}"/></p>
-			<p>Hair Color: <c:out value="${hair}"/></p>
+			<h3>	Personal Information:</h3>
+			<p>		ProfileID: <c:out value="${profileID}"/></p>
+			<p>		Email: <c:out value="${loginEmail}"/></p>
+			<p>		Age: <c:out value="${age}"/></p>
+			<p>		Dating age Range Start: <c:out value="${dars}"/>, End: <c:out value="${dare}"/></p>
+			<p>		Dating Geo Range: <c:out value="${param.dgr}"/></p>
+			<p>		Gender: <c:out value="${gender}"/></p>
+			<p>		Hobbies: <c:out value="${hobbies}"/></p>
+			<p>		Height: <c:out value="${height}"/></p>
+			<p>		Weight: <c:out value="${weight}"/></p>
+			<p>		Hair Color: <c:out value="${hair}"/></p>
 		</form>
 		<form action = "Edit_Profile.html" method = "post" class="text-center">
 			<button type="submit">Edit your profile!</button>
 		</form>
 		<br>
 		<form action = "viewprivate" method = "post" class = "text-center">
-			<button type="button">View your private info!</button>
-	<!-- <p>Test<c:out value="${param.Username}"/></p>
-	<c:out value="${param.auth}"/>
-	<c:out value="${param.loginEmail}"/> -->
+			<button type="submit">View your private info!</button>
+		</form>
+		<br>
+		<form action = "login.html" method = "post" class = "text-center">
+			<button type="submit">Logout</button>
 		</form>
 	</div>
 </body>
