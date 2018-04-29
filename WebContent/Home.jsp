@@ -17,13 +17,14 @@
 </head>
 <body>
 	<div id="profileInfo">
-		<form action="Edit_Profile.html" method = "post"class="text-center">
+		<form method = "post">
 			<h1><span style="background-color: #000080; color: #ff0000;">Welcome to your dating profile!</span></h1>
 			<h3><span style="background-color: #000080; color: #ff0000;">This is the information that other users can see</span></h3>
 			<hr />
 			<h3>Personal Information:</h3>
 			<p>ProfileID: <c:out value="${param.profileID}"/></p>
 			<p>Email: <c:out value="${param.loginEmail}"/></p>
+			<p>Age: <c:out value="${param.age}"/></p>
 			<p>Dating age Range Start: <c:out value="${param.dars}"/>, End: <c:out value="${param.dare}"/></p>
 			<p>Dating Geo Range: <c:out value="${param.dgr}"/></p>
 			<p>Gender: <c:out value="${param.gender}"/></p>
@@ -31,8 +32,13 @@
 			<p>Height: <c:out value="${param.height}"/></p>
 			<p>Weight: <c:out value="${param.weight}"/></p>
 			<p>Hair Color: <c:out value="${param.hair}"/></p>
-			<button>type="button" value="Edit your profile!</button>
-			<button>type="button" value = "View your private info"</button>
+		</form>
+		<form action = "Edit_Profile.html" method = "post" class="text-center">
+			<button type="submit">Edit your profile!</button>
+		</form>
+		<br>
+		<form action = "viewprivate" method = "post" class = "text-center">
+			<button type="button">View your private info!</button>
 	<!-- <p>Test<c:out value="${param.Username}"/></p>
 	<c:out value="${param.auth}"/>
 	<c:out value="${param.loginEmail}"/> -->

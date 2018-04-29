@@ -4,10 +4,12 @@ public class ProfileSignedIn {
 
 	String SSN;
 	String email;
-	public ProfileSignedIn(String sSN, String email) {
+	String profileID;
+	public ProfileSignedIn(String sSN, String email, String profileID) {
 		super();
 		SSN = sSN;
 		this.email = email;
+		this.profileID = profileID;
 	}
 	public String getSSN() {
 		return SSN;
@@ -20,5 +22,11 @@ public class ProfileSignedIn {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getProfileID() {
+		return profileID;
+	}
+	public void setProfileID(String profileID) {
+		this.profileID = profileID;
 	}
 }

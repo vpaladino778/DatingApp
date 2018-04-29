@@ -197,6 +197,25 @@ public class SQLAccessor {
 		ps4.executeUpdate();
 	}
 	
+	public void secondProfile(String profileID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Profile(ProfileID, OwnerSSN, CreationDate, LastModDate) VALUES(?,?, NOW(), NOW())");
+		ps.setString(1, profileID);
+		ps.setString(2, UserDat.ps1.getSSN());
+		ps.executeUpdate();
+	}
+	
+	public ResultSet getProfileInfo(String profileID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Profile WHERE Profile.ProfileID = ?");
+		ps.setString(1, profileID);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet getPrivateInfo(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN = ?");
+		ps.setString(1, SSN);
+		return ps.executeQuery();
+	}
+	
 	public void deleteCustomer(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN=?");
 		ps.setString(1, SSN);
