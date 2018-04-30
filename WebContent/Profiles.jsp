@@ -29,7 +29,7 @@
 						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title">${profile.profileid}</h3>
+								<h3 class="panel-title">${profile.profileid}/h3>
 							</div>
 							<div class="panel-body">
 								<div class="row">
@@ -48,25 +48,39 @@
 												</tr>
 
 												<tr>
-												<tr>
 													<td>Gender</td>
 													<td>${profile.m_f}</td>
+												</tr>
+												
+												<tr>
+													<td>Hobbies:</td>
+													<td>${profile.hobbies}</td>
+												</tr>
+												<tr>
+													<td>Height:</td>
+													<td>${profile.height} cm</td>
+												</tr>
+												<tr>
+													<td>Weight:</td>
+													<td>${profile.weight} lbs</td>
+												</tr>
+												<tr>
+													<td>Hair Color:</td>
+													<td>${profile.haircolor}</td>
+												</tr>
 											</tbody>
 										</table>
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer">
-								<a data-original-title="Broadcast Message" data-toggle="tooltip"
+								<a data-original-title="Like this user" data-toggle="tooltip"
 									type="button" class="btn btn-sm btn-primary"><i
-									class="glyphicon glyphicon-envelope"></i></a> <span
-									class="pull-right"> <a href="edit.html"
-									data-original-title="Edit this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-warning"><i
-										class="glyphicon glyphicon-edit"></i></a> <a
-									data-original-title="Remove this user" data-toggle="tooltip"
+									class="glyphicon glyphicon-thumbs-up"></i></a>
+									
+								<a data-original-title="Like this user" data-toggle="tooltip"
 									type="button" class="btn btn-sm btn-danger"><i
-										class="glyphicon glyphicon-remove"></i></a>
+										class="glyphicon glyphicon-thumbs-down"></i></a>
 								</span>
 							</div>
 
