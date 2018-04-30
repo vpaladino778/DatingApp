@@ -43,6 +43,7 @@
 		<servlet-name>profiles</servlet-name>
 		<servlet-class>Servlets.ProfileServlet</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>secondprof</servlet-name>
 		<url-pattern>/secondprof</url-pattern>
