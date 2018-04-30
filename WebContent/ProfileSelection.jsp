@@ -15,9 +15,17 @@
 	</head>
 	<body>
 		
-		<div id="profileList">
-			<form action="openhome" method="post" class="text-center profileForm">
-				<h3>Please select your profile</h3>
+		<div class="page-header pheader">
+  			<h1 class="RowersMeet" style="margin-top: 0px; font-weight:bold;">Profile Selection</h1>
+		</div>
+		
+		<div id="profileList" class="container text-center">
+			<div class="selectProf">
+				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select your profile</h2>
+			</div>
+			
+			<form action="openhome" method="post" class="text-center selectProfFrm">
+				
 				<!-- <input type="hidden" name="loginEmail" value="${param.profileID}">
 				<input type="hidden" name="loginEmail" value="${param.loginEmail}">
 				<input type="hidden" name="loginEmail" value="${param.dars}">
@@ -30,14 +38,14 @@
 				<input type="hidden" name="loginEmail" value="${param.hair}">
 				<input type="hidden" name="auth" value="${auth}">-->
 				<c:forEach var="profiles" items="${pList}">
-					<input id="profile" type="Submit" name="Username" value="${profiles}">
+					<input id="profile" class="btn btn-lg btn-primary btn-block bttnProf" type="Submit" name="Username" value="${profiles}">
 				</c:forEach>
 
 			</form>
-			<form action = "second_prof.html">
+			<form action = "second_prof.html" class="createProfFrm">
 				<div class="text-center newProfiles">
 					<p>Don't have a profile yet?</p>
-					<input id="newProfile" type="Submit" name="NewProfile" value="Create new profile!">
+					<input id="newProfile" class="btn btn-med btn-primary btn-block bttnProf" type="Submit" name="NewProfile" value="Create new profile!">
 				</div>
 			</form>
 

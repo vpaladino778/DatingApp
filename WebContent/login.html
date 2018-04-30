@@ -13,13 +13,18 @@
 
 
 <body>
-<div class="page-header">
-  <h1>Dating App Login<small>  Enter your login details below</small></h1>
+<div class="page-header pheader">
+  <h1 class="RowersMeet" style="margin-top: 0px; font-weight:bold;">Rower's Meet Login</h1>
+  <h4 class="RowersMeetDetail">Enter your login details below</h4>
 </div>
 <br>
-<div id="signin" class="container signin">
-<form class="form-signin" method="post" action="login">
-        <h2 class="form-signin-heading">Please sign in</h2>
+<div id="signin" class="container signin text-center">
+	<div class="signInh2">
+		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please sign in</h2>
+	</div>
+	<br>
+	<form class="form-signin signInFrm" method="post" action="login">
+        
         <div class="form-group" >
         	<label for="loginEmail" class="sr-only">SSN </label>
         	<input type="email" id="loginEmail" name="loginEmail" class="form-control" placeholder="Email" required autofocus>
@@ -29,15 +34,19 @@
         	<input type="password" id="loginPass" name="loginPass" class="form-control" placeholder="Password" required>
         </div>
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p> Not a member yet? <a href="#" onClick="$('#signin').fadeOut(100, function (){ $('#signup').fadeIn(100)});">Click Here!</a></p>
+        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Sign in</button>
+        <p> Not a member yet? <a href="#" onClick="newAccount();">Click Here!</a></p>
       </form>
 </div>
 
-<div id="signup" class="container signup" style="display:none">
-<form class="form-signin" method="post" action="register">
-        <h2 class="form-signin-heading">Sign up Below!</h2>
-        <br>
+<div id="signup" class="container signup text-center" style="display:none">
+	<div class="signInh2">
+		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Sign Up Below!</h2>
+	</div>
+	<br>
+<form class="form-signin signInFrm" method="post" action="register">
+        
+        
         <div class="form-group">
         	<label for="fname" class="sr-only">First Name</label>
         	<input type="text" id="fname" name="fname" class="form-control" placeholder="First Name" size="11" required>
@@ -87,10 +96,26 @@
         	<input type="text" id="regSSN" name="regSSN" class="form-control" placeholder="Social Security Number" size="11" required>
         </div>
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <button class="btn btn-lg btn-primary btn-block bttnSignIn" type="submit">Sign Up</button>
         <br>
-        <p> Already a member? <a href="#" onClick="$('#signup').fadeOut(100, function (){ $('#signin').fadeIn(100)});">Click Here!</a></p>
+        <p> Already a member? <a href="#" onClick="alreadyMem();">Click Here!</a></p>
 </form>
 </div>
+<script>
+	function newAccount(){
+		$('#signin').fadeOut(100, function() {
+			$("#signup").fadeIn(100);
+		});
+		$(".RowersMeet").text("Rower's Meet Registration");
+		$(".RowersMeetDetail").text("Enter your account information below");
+	}
+	function alreadyMem(){
+		$("#signup").fadeOut(100, function (){
+			$("#signin").fadeIn(100);
+		});
+		$(".RowersMeet").text("Rower's Meet Login");
+		$(".RowersMeetDetail").text("Enter your login details below");
+	}
+</script>
 </body>
 </html>

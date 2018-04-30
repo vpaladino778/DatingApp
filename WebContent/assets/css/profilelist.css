@@ -1,76 +1,56 @@
 @charset "ISO-8859-1";
 #profileList {
-  max-width: 75%;
-  padding: 30px;
+  max-width: 450px;
+  padding-bottom: 30px;
   margin: 0 auto;
-  border-radius 10px;
-  border: 1px solid dimgrey;
+  border-radius: 0px 0px 20px 20px;
+  border: 1px solid #900;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 #profile {
-	width: 80%;
-	height: 80px;
-	margin-top: 40px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
 .newProfiles {
-	margin: 0 auto;
-	margin-top: 40px;
+	margin-top: 25px;
 }
+
 html {
 	height: 100%;
 }
 
+body {
+	background-color: #fffffa;
+}
 
-/* navbar */
+.selectProfh2 {
+	margin: 0 auto;
+	padding: 0px;
+	width: 100%;
+	background-color: #900;
+}
 
-.welcomeMsg {
-	color: #fff;
+.pheader {
+	color: white;
 	background-color: #890000;
 	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
 }
-
-table {
-	text-align: left;
+.selectProfFrm {
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-top: 20px;
+}
+.createProfFrm {
 	margin: 0 auto;
-	border: 1px solid #900;
+	width:50%;
 }
-.infoTable {
-	padding-top: 30px;
-	margin: 0 auto;
-}
-td {
-	padding: 10px;
-	padding-left: 15px;
-}
-th {
-	padding: 10px;
-	padding-left: 15px;
-	font-size: 30px;
-}
-
-
-.btn-group button {
-	border: 0px;
-    background-color: #900; /* Green background */
-    border: 1px solid #900; 
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */
-}
-
-.btn-group button:last-child:not(:only-child) {
-    border-right: none; /* Prevent double borders */
-}
-
-/* Clear floats (clearfix hack) */
-.btn-group:after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Add a background color on hover */
-.btn-group button:hover {
-    background-color: #7a0000;
+.bttnProf {
+	background-color: #900;
 }

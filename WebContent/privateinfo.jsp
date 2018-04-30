@@ -11,13 +11,13 @@
 		<title>Login</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="assets/css/profilelist.css" rel="stylesheet">
+		<link href="assets/css/home.css" rel="stylesheet">
 <title>Private Information</title>
 </head>
 <body>
 	<div id="profileInfo" class="text-center">
 		<div class="welcomeMsg">
-			<h1 style="margin-top:0px; padding-top:30px;">Private Profile Info</h1>
+			<h1 style="margin-top:0px; padding-top:30px; font-weight:bold;">Private Profile Info</h1>
 			<h3 style="padding-bottom:10px;">This is information that other users cannot see</h3>
 		
 		<div class="btn-group btnStyle" style="width:100%;">

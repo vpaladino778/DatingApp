@@ -240,7 +240,8 @@ public class SQLAccessor {
 	public ResultSet getPrivateInfo(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN = ?");
 		ps.setString(1, SSN);
-		return ps.executeQuery();
+		ResultSet rs = ps.executeQuery();
+		return rs;
 	}
 	
 	public void deleteCustomer(String SSN) throws SQLException {
