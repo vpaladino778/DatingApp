@@ -54,11 +54,19 @@
 
 			</div>
 		</div>
-
-		<form method="post" class="infoTable">
-
-			<table>
-				<tr>
+		<script>
+			$(document).ready(function() {
+			  var tableWidth = $("#mainTable").width();
+			  var tableHeight = $("#mainTable").height();
+			  
+			  $(".tableDiv").width(tableWidth);
+			  $(".tableDiv").height(tableHeight);
+			}) ;
+		</script>
+		
+		<form method = "post" class = "infoTable">
+			<div class="tableDiv">
+			<table id="mainTable">				<tr>
 					<th colspan="2" style="background-color: #900; color: #fff;">Personal
 						Information</th>
 				</tr>
@@ -83,8 +91,8 @@
 					<td><c:out value="${dare}" /></td>
 				</tr>
 				<tr>
-					<td style="font-weight: bold;">Dating Geo Range:</td>
-					<td><c:out value="${param.dgr}" /></td>
+					<td style="font-weight:bold;">Dating Geo Range:</td>
+					<td><c:out value="${dgr}"/></td>
 				</tr>
 				<tr>
 					<td style="font-weight: bold;">Gender</td>
@@ -108,6 +116,7 @@
 				</tr>
 
 			</table>
+			</div>
 		</form>
 	</div>
 </body>

@@ -29,9 +29,20 @@
 		
 		</div>
 		</div>
+		
+		<script>
+			$(document).ready(function() {
+			  var tableWidth = $("#mainTable").width();
+			  var tableHeight = $("#mainTable").height();
+			  
+			  $(".tableDiv").width(tableWidth);
+			  $(".tableDiv").height(tableHeight);
+			}) ;
+		</script>
 	
 		<form method = "post" class = "infoTable">
-		<table>
+		<div class="tableDiv">
+		<table id="mainTable">
 				<tr>
 					<th colspan="2" style="background-color: #900; color:#fff;">Private Information</th>
 				</tr>
@@ -52,6 +63,7 @@
 					<td><c:out value="${street} ${city} ${state} ${zip}"/></td>
 				</tr>
 			</table>
+			</div>
 		</form>
 		
 	</div>
