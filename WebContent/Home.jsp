@@ -68,7 +68,7 @@
 				</tr>
 				<tr>
 					<td style="font-weight:bold;">Dating Geo Range:</td>
-					<td><c:out value="${param.dgr}"/></td>
+					<td><c:out value="${dgr}"/></td>
 				</tr>
 				<tr>
 					<td style="font-weight:bold;">Gender</td>
