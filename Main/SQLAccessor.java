@@ -152,7 +152,7 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
 	
-	public boolean updatePass(String oldPass, String pass1, String pass2) throws SQLException {
+	public boolean updatePass(String SSN, String oldPass, String pass1, String pass2) throws SQLException {
 		if(pass1.compareTo(pass2)!=0) {
 			System.out.println("new passwords don't match");
 			return false;
@@ -161,8 +161,9 @@ public class SQLAccessor {
 		ps.setString(1, oldPass);
 		ResultSet rs = ps.executeQuery();
 		if(rs.next()) {
-			PreparedStatement ps2 = con.prepareStatement("UPDATE Person SET Password = ?");
+			PreparedStatement ps2 = con.prepareStatement("UPDATE Person SET Password = ? WHERE Person.SSN = ?");
 			ps2.setString(1, pass1);
+			ps2.setString(2, SSN);
 			ps2.executeUpdate();
 			return true;
 		}

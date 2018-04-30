@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Main.NewRegister;
 import Main.SQLAccessor;
+import Main.UserDat;
 
 public class ChangePassServlet extends HttpServlet{
 
@@ -28,7 +29,7 @@ public class ChangePassServlet extends HttpServlet{
 	        SQLAccessor sqlA = new SQLAccessor();
 	        boolean done = false;
 			try {
-				done = sqlA.updatePass(oldpass, pass1, pass2);
+				done = sqlA.updatePass(UserDat.ps1.getSSN(), oldpass, pass1, pass2);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
