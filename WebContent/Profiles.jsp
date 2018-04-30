@@ -16,6 +16,7 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
 <link href="assets/css/profiles.css" rel="stylesheet">
+<link rel='icon' href='favicon.ico' type='image/x-icon'/ >
 
 </head>
 
