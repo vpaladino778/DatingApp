@@ -16,3 +16,61 @@
 	margin: 0 auto;
 	margin-top: 40px;
 }
+html {
+	height: 100%;
+}
+
+
+/* navbar */
+
+.welcomeMsg {
+	color: #fff;
+	background-color: #890000;
+	margin: 0 auto;
+}
+
+table {
+	text-align: left;
+	margin: 0 auto;
+	border: 1px solid #900;
+}
+.infoTable {
+	padding-top: 30px;
+	margin: 0 auto;
+}
+td {
+	padding: 10px;
+	padding-left: 15px;
+}
+th {
+	padding: 10px;
+	padding-left: 15px;
+	font-size: 30px;
+}
+
+
+.btn-group button {
+	border: 0px;
+    background-color: #900; /* Green background */
+    border: 1px solid #900; 
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:last-child:not(:only-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #7a0000;
+}
