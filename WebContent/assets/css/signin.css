@@ -11,6 +11,19 @@
   background-color: #fff;
   margin-bottom: 30px;
 }
+
+#secondProf {
+  max-width: 450px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  border-radius: 0px 0px 20px 20px;
+  border: 1px solid #900;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
 body {
 	background-color: #fffffa; 
 }

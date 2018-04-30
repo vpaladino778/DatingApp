@@ -12,18 +12,25 @@
 </head>
 
 <body>
-<div class="page-header">
-  <h1>Making New Profile<small>  Choose a new ProfileID</small></h1>
+	<div class="page-header pheader">
+  <h1 style="margin-top: 0px; font-weight:bold;">Making New Profile</h1>
+  <h3>Choosing a new ProfileID</h3>
 </div>
 <br>
-<div id="signin" class="container signin">
-<form class="form-signin" method="post" action="secondprof">
-        <h4 class="form-signin-heading">Please choose a profile ID</h4>
+<div id="secondProf" class="container signin text-center">
+	<div class="signInh2">
+		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please choose a ProfileID</h2>
+	</div>
+	<br>
+	<form class="form-signin signInFrm" method="post" action="secondprof">
+        
         <div class="form-group" >
-        	<label for="profID" class="sr-only">ProfileID </label>
+        	<label for="profID" class="sr-only">ProfileID</label>
         	<input type="profID" id="profID" name="profID" class="form-control" placeholder="New Profile ID" required autofocus>
         </div>
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Submit</button>
       </form>
 </div>
+
+	</body>
+</html>
