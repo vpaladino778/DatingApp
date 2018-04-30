@@ -57,6 +57,18 @@ public class SQLAccessor {
 		ps2.executeUpdate();
 	}
 	
+	public boolean checkManager(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.Role = 'Manager' AND Employee.SSN = ?");
+		ps.setString(1, SSN);
+		ResultSet rs = ps.executeQuery();
+		return rs.next();
+	}
+	
+	public ResultSet getEmployeeInfo(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.SSN = ?");
+		ps.setString(1, SSN);
+		return ps.executeQuery();
+	}
 	public void deleteEmployee(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN = ?");
 		ps.setString(1, SSN);
@@ -151,6 +163,13 @@ public class SQLAccessor {
 	
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
+	
+	public boolean checkEmployee(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.SSN = ?");
+		ps.setString(1, SSN);
+		ResultSet rs = ps.executeQuery();
+		return rs.next();
+	}
 	
 	public boolean updatePass(String SSN, String oldPass, String pass1, String pass2) throws SQLException {
 		if(pass1.compareTo(pass2)!=0) {

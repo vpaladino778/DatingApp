@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import Main.ProfileList;
 import Main.ProfileSignedIn;
+import Main.SQLAccessor;
 import Main.UserDat;
 import Main.Validate;
 
@@ -27,15 +28,33 @@ public class LoginServlet extends HttpServlet{
 	        request.setAttribute("auth", validation);
 	        if(validation)
 	        {
-	        	ArrayList<String> profileList = ProfileList.getProfileList(email);  	
-	        	request.setAttribute("pList", profileList);
-	            RequestDispatcher rs = request.getRequestDispatcher("/ProfileSelection.jsp");
-	            rs.forward(request, response);
+	        	SQLAccessor sqlA = new SQLAccessor();
+	        	try {
+					boolean employee_check = sqlA.checkEmployee(UserDat.ps1.getSSN());
+					if(employee_check) {
+						ResultSet employee = sqlA.getEmployeeInfo(UserDat.ps1.getSSN());
+						employee.next();
+						request.setAttribute("role", employee.getString("Role"));
+						request.setAttribute("SSN", employee.getString("SSN"));
+						request.setAttribute("wage", employee.getInt("HourlyRate"));
+						request.setAttribute("start", employee.getDate("StartDate"));
+						RequestDispatcher rs = request.getRequestDispatcher("/Employee_Control.jsp");
+						rs.forward(request, response);
+					}
+					else {
+						ArrayList<String> profileList = ProfileList.getProfileList(email);  	
+			        	request.setAttribute("pList", profileList);
+			            RequestDispatcher rs = request.getRequestDispatcher("/ProfileSelection.jsp");
+			            rs.forward(request, response);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	            
 	        }
 	        else
 	        {
-	        	
 	        	out.println("Username or Password incorrect");
 	        	RequestDispatcher rs = request.getRequestDispatcher("login.html");
 	        	rs.include(request, response);
