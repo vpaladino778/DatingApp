@@ -1,18 +1,56 @@
 @charset "ISO-8859-1";
 #profileList {
-  max-width: 75%;
-  padding: 30px;
+  max-width: 450px;
+  padding-bottom: 30px;
   margin: 0 auto;
-  border-radius 10px;
-  border: 1px solid dimgrey;
+  border-radius: 0px 0px 20px 20px;
+  border: 1px solid #900;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 #profile {
-	width: 80%;
-	height: 80px;
-	margin-top: 40px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
 .newProfiles {
+	margin-top: 25px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #fffffa;
+}
+
+.selectProfh2 {
 	margin: 0 auto;
-	margin-top: 40px;
+	padding: 0px;
+	width: 100%;
+	background-color: #900;
+}
+
+.pheader {
+	color: white;
+	background-color: #890000;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+}
+.selectProfFrm {
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-top: 20px;
+}
+.createProfFrm {
+	margin: 0 auto;
+	width:50%;
+}
+.bttnProf {
+	background-color: #900;
 }

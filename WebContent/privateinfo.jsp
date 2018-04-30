@@ -11,23 +11,47 @@
 		<title>Login</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="assets/css/profilelist.css" rel="stylesheet">
+		<link href="assets/css/home.css" rel="stylesheet">
 <title>Private Information</title>
 </head>
 <body>
-	<div id="privateInfo">
-		<form method = "post" class = "text-center">
-			<h1><span style="background-color: #000080; color: #ff0000;">Private profile info</span></h1>
-			<h3><span style="background-color: #000080; color: #ff0000;">This is the information that other users cannot see</span></h3>
-			<hr />
-			<h3>Private Information:</h3>
-			<p>SSN: <c:out value="${SSN}"/></p>
-			<p>Email: <c:out value="${email}"/></p>
-			<p>Phone: <c:out value="${phone}"/></p>
-			<p>Street, City, State, Zip: <c:out value="${street} ${city} ${state} ${zip}"/></p>
+	<div id="profileInfo" class="text-center">
+		<div class="welcomeMsg">
+			<h1 style="margin-top:0px; padding-top:30px; font-weight:bold;">Private Profile Info</h1>
+			<h3 style="padding-bottom:10px;">This is information that other users cannot see</h3>
+		
+		<div class="btn-group btnStyle" style="width:100%;">
+		
+			<form action="change_pass.html" method="post" class="text-center">
+				<button type = "submit" style="width:100%;">Change your password!</button>
+			</form>
+		
+		</div>
+		</div>
+	
+		<form method = "post" class = "infoTable">
+		<table>
+				<tr>
+					<th colspan="2" style="background-color: #900; color:#fff;">Private Information</th>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">SSN:</td>
+					<td><c:out value="${SSN}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Email:</td>
+					<td><c:out value="${email}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Phone:</td>
+					<td><c:out value="${phone}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Street, City, State, Zip:</td>
+					<td><c:out value="${street} ${city} ${state} ${zip}"/></td>
+				</tr>
+			</table>
 		</form>
-		<form action="change_pass.html" method="post" class="text-center">
-			<button type = "submit">Change your password!</button>
-		</form>
+		
 	</div>
 </body>

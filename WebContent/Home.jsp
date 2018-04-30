@@ -11,42 +11,87 @@
 		<title>Login</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="assets/css/profilelist.css" rel="stylesheet">
+		<link href="assets/css/home.css" rel="stylesheet">
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profile home screen</title> -->
 </head>
 <body>
-	<div id="profileInfo">
-		<form method = "post" class = "text-center">
-			<h1><span style="background-color: #000080; color: #ff0000;">   Welcome to your dating profile!</span></h1>
-			<h3><span style="background-color: #000080; color: #ff0000;">   This is the information that other users can see</span></h3>
-			<hr />
-			<h3>	Personal Information:</h3>
-			<p>		ProfileID: <c:out value="${profileID}"/></p>
-			<p>		Email: <c:out value="${loginEmail}"/></p>
-			<p>		Age: <c:out value="${age}"/></p>
-			<p>		Dating age Range Start: <c:out value="${dars}"/>, End: <c:out value="${dare}"/></p>
-			<p>		Dating Geo Range: <c:out value="${param.dgr}"/></p>
-			<p>		Gender: <c:out value="${gender}"/></p>
-			<p>		Hobbies: <c:out value="${hobbies}"/></p>
-			<p>		Height: <c:out value="${height}"/></p>
-			<p>		Weight: <c:out value="${weight}"/></p>
-			<p>		Hair Color: <c:out value="${hair}"/></p>
-		</form>
-		<form action = "Edit_Profile.html" method = "post" class="text-center">
-			<button type="submit">Edit your profile!</button>
-		</form>
-		<br>
-		<form action = "viewprivate" method = "post" class = "text-center">
-			<button type="submit">View your private info!</button>
-		</form>
-		<br>
-		<form action = "login.html" method = "post" class = "text-center">
-			<button type="submit">Logout</button>
-		</form>
+	<div id="profileInfo" class="text-center">
+		<div class="welcomeMsg">
+			<h1 style="margin-top:0px; padding-top:30px; font-weight: bold;S">Welcome to your dating profile!</h1>
+			<h3 style="padding-bottom:10px;">This is the information that other users can see</h3>
 		
-		<form action = "profiles" method = "post" class="text-center">
-			<button type="submit">Find Singles Near You!</button>
+		<div class="btn-group btnStyle" style="width:100%;">
+		
+			<form action = "profiles" method = "post" class="text-center">
+				<button type="submit" style="width:25%; height:100%;">Find Singles Near You!</button>
+			</form>
+			<form action = "Edit_Profile.html" method = "post" class="text-center">
+				<button type="submit" style="width:25%; height:100%;">Edit your profile!</button>
+			</form>
+			<form action = "viewprivate" method = "post" class = "text-center">
+				<button type="submit" style="width:25%; height:100%;">View your private info!</button>
+			</form>
+			<form action = "login.html" method = "post" class = "text-center">
+				<button type="submit" style="width:25%; height:100%;">Logout</button>
+			</form>
+		
+			
+		</div>
+		</div>
+		
+		<form method = "post" class = "infoTable">
+			
+			<table>
+				<tr>
+					<th colspan="2" style="background-color: #900; color:#fff;">Personal Information</th>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">ProfileID:</td>
+					<td><c:out value="${profileID}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Email:</td>
+					<td><c:out value="${loginEmail}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Age:</td>
+					<td><c:out value="${age}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Dating Age Range Start:</td>
+					<td><c:out value="${dars}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Dating Age Range End:</td>
+					<td><c:out value="${dare}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Dating Geo Range:</td>
+					<td><c:out value="${param.dgr}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Gender</td>
+					<td><c:out value="${gender}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Hobbies:</td>
+					<td><c:out value="${hobbies}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Height:</td>
+					<td><c:out value="${height}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Weight:</td>
+					<td><c:out value="${weight}"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Hair Color:</td>
+					<td><c:out value="${hair}"/></td>
+				</tr>
+			
+			</table>
 		</form>
 	</div>
 </body>
