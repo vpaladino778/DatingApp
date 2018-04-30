@@ -19,8 +19,12 @@ body {
 table {
 	text-align: left;
 	margin: 0 auto;
+}
+.tableDiv {
+	margin: 0 auto;
 	border: 1px solid #900;
 	background-color: #fff;
+	border-radius: 0px 0px 20px 20px;
 	margin-bottom: 30px;
 }
 .infoTable {
@@ -38,11 +42,11 @@ th {
 }
 
 table tr:last-child td:first-child {
-    border-bottom-left-radius: 20px;
+    border-radius: 0px 0px 0px 20px;
 }
 
 table tr:last-child td:last-child {
-    border-bottom-right-radius: 20px;
+    border-radius: 0px 0px 20px 0px;
 }
 
 
