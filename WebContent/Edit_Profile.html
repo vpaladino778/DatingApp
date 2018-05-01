@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>Edit Profile</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href="assets/css/signin.css" rel="stylesheet">
@@ -15,14 +15,18 @@
 
 
 <body>
-<div class="page-header">
-	<h1>Dating App Edit Profile</h1>
-	<h2><small>Please edit your info!</small></h2>
+<div class="page-header pheader">
+  <h1 class="RowersMeet" style="margin-top: 0px; font-weight:bold;">Rower's Meet Edit Profile</h1>
+  <h4 class="RowersMeetDetail">Enter changes to update your profile</h4>
 </div>
 <br>
-<div id="edit_profile" class="container edit_profile">
-<form class="form-edit_profile" method="post" action="editprofile">
-		<div class = "form-group">
+<div id="signin" class="container signin text-center">
+	<div class="signInh2">
+		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please edit your info</h2>
+	</div>
+	<br>
+	<form class="form-edit_profile signInFrm" method="post" action="edit_profile">
+        <div class = "form-group">
 			<label for="regAge" class = "sr-only">Age</label>
 			<input type="age" id="regAge" name="regAge" class="form-control" placeholder="Age" required autofocus>
 		</div>
@@ -58,10 +62,9 @@
 			<label for="regHair" class = "sr-only">Hair Color</label>
 			<input type="hair_color" id="regHair" name="regHair" class="form-control" placeholder="Hair Color" required autofocus>
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Save Changes</button>
-		<br>
-		<p> Don't want to edit anything?<a href="#" onClick="$('#signup').fadeOut(100, function (){ $('#signin').fadeIn(100)});">Click Here!</a></p>
-</form>
+        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Submit</button>
+    </form>
 </div>
+
 </body>
 </html>
