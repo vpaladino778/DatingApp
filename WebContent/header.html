@@ -5,36 +5,41 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
+<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 </head>
 
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">
-      	<img alt="Rowers Meet" src="assets/img/oar.png" width="32px">
-      </a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#">My Profile</a></li>
-        <li><a href="profiles">Discover</a></li>
-      </ul>
-      <form method="post" action="ProfileSelection.jsp">
-      	<button type="button" class="btn btn-default navbar-btn navbar-right">Switch Profiles</button>
-      </form>
-      <button type="button" class="btn btn-default navbar-btn navbar-right">Sign Out</button>
-      
-    </div>
-  </div>
-</nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+		<a class="navbar-brand" href="#">Rowers Meet</a>
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+
+						<li class="nav-item"><a class="nav-link" href="Profiles.jsp">My
+								Profile</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="Edit_Profile.html">Edit</a></li>
+						<li class="nav-item"><a class="nav-link" href="Profiles.jsp">Discover</a>
+						</li>
+					</ul>
+					<form action="viewprivate" method="post"
+						class="form-inline my-2 my-lg-0">
+						<button type="submit">View your private info!</button>
+					</form>
+					<form class="form-inline my-2 my-lg-0" action="login.html"
+						method="post">
+
+						<button class="btn btn-default my-2 my-sm-0 navbar-righ"
+							type="submit">Sign Out</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
 </body>

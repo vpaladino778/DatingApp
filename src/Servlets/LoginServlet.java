@@ -4,8 +4,10 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import Main.EmployeeHome;
 import Main.ProfileList;
 import Main.ProfileSignedIn;
+import Main.SQLAccessor;
 import Main.UserDat;
 import Main.Validate;
 
@@ -27,15 +29,26 @@ public class LoginServlet extends HttpServlet{
 	        request.setAttribute("auth", validation);
 	        if(validation)
 	        {
-	        	ArrayList<String> profileList = ProfileList.getProfileList(email);  	
-	        	request.setAttribute("pList", profileList);
-	            RequestDispatcher rs = request.getRequestDispatcher("/ProfileSelection.jsp");
-	            rs.forward(request, response);
+	        	SQLAccessor sqlA = new SQLAccessor();
+	        	try {
+					boolean employee_check = sqlA.checkEmployee(UserDat.ps1.getSSN());
+					if(employee_check) {
+						EmployeeHome.loadEmployeeHome(request, response, sqlA);
+					}
+					else {
+						ArrayList<String> profileList = ProfileList.getProfileList(email);  	
+			        	request.setAttribute("pList", profileList);
+			            RequestDispatcher rs = request.getRequestDispatcher("/ProfileSelection.jsp");
+			            rs.forward(request, response);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	            
 	        }
 	        else
 	        {
-	        	
 	        	out.println("Username or Password incorrect");
 	        	RequestDispatcher rs = request.getRequestDispatcher("login.html");
 	        	rs.include(request, response);

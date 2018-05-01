@@ -24,7 +24,7 @@ public class SQLAccessor {
 	public void newEmployee(String SSN, String role, int hourlyRate, String pass, 
 			String fname, String lname, String email, String street, String city, 
 			String state, String zip, String phone) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
 		ps.setString(1, SSN);
 		ps.setString(2, role);
 		ps.setInt(3, hourlyRate);
@@ -57,6 +57,18 @@ public class SQLAccessor {
 		ps2.executeUpdate();
 	}
 	
+	public boolean checkManager(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.Role = 'Manager' AND Employee.SSN = ?");
+		ps.setString(1, SSN);
+		ResultSet rs = ps.executeQuery();
+		return rs.next();
+	}
+	
+	public ResultSet getEmployeeInfo(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.SSN = ?");
+		ps.setString(1, SSN);
+		return ps.executeQuery();
+	}
 	public void deleteEmployee(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN = ?");
 		ps.setString(1, SSN);
@@ -64,6 +76,15 @@ public class SQLAccessor {
 		PreparedStatement ps2 = con.prepareStatement("DELETE FROM Employee WHERE SSN = ?");
 		ps2.setString(2, SSN);
 		ps2.executeUpdate();
+	}
+	
+	public String getSSNFromName(String lname, String fname) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT SSN FROM Person WHERE Person.LastName = ? AND Person.FirstName = ?");
+		ps.setString(1, lname);
+		ps.setString(2, fname);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		return rs.getString("SSN");
 	}
 	
 	public ResultSet monthlySalesReport(String year, String month) throws SQLException {
@@ -149,8 +170,20 @@ public class SQLAccessor {
 		return rs;
 	}
 	
+	public ResultSet getAllCustReps() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee INNER JOIN Person ON Employee.SSN = Person.SSN WHERE Employee.Role='CustRep'");
+		return ps.executeQuery();
+	}
+	
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
+	
+	public boolean checkEmployee(String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.SSN = ?");
+		ps.setString(1, SSN);
+		ResultSet rs = ps.executeQuery();
+		return rs.next();
+	}
 	
 	public boolean updatePass(String SSN, String oldPass, String pass1, String pass2) throws SQLException {
 		if(pass1.compareTo(pass2)!=0) {

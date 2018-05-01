@@ -13,7 +13,7 @@ public class ProfileBean implements Serializable{
 	private String Hobbies;
 	private int Height; //In cm
 	private int Weight;
-	private String HairColor;
+	private String haircolor;
 	
 	public ProfileBean() {
 		//Default values
@@ -26,7 +26,7 @@ public class ProfileBean implements Serializable{
 		M_f = "";
 		Hobbies = "";
 		Height=0;
-		HairColor = "";
+		haircolor = "";
 		Weight=0;
 	}
 	
@@ -90,11 +90,11 @@ public class ProfileBean implements Serializable{
 	public void setWeight(int weight) {
 		Weight = weight;
 	}
-	public String getHairColor() {
-		return HairColor;
+	public String getHaircolor() {
+		return haircolor;
 	}
-	public void setHairColor(String hairColor) {
-		HairColor = hairColor;
+	public void setHairColor(String haircolor) {
+		this.haircolor = haircolor;
 	}
 	
 
