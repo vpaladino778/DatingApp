@@ -370,6 +370,12 @@ public class SQLAccessor {
 		ps.executeUpdate();
 	}
 	
+	/**
+	 * 
+	 * @param liker ProfileID of the person liking
+	 * @param likee ProfileID of the person being liked
+	 * @throws SQLException
+	 */
 	public void likeProfile(String liker, String likee) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Likes (Liker, Likee, Date_Time) VALUES (?, ?, NOW())");
 		ps.setString(1, liker);

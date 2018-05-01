@@ -24,15 +24,12 @@
 	<div id="profileInfo" class="text-center">
 		<div class="welcomeMsg">
 
-			<img src="assets/img/oar.png" width="64" style="display: inline;">
+			<!-- Header -->
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-right:20px;">
+			<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Welcome to your dating profile!</h1>
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-left:20px;">
 
-			<h1
-				style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Welcome
-				to your dating profile!</h1> <img src="assets/img/oar.png" width="64"
-				style="display: inline;">
-
-			<h3 style="padding-bottom: 10px;">This is the information that
-				other users can see</h3>
+			<h3 style="padding-bottom: 10px;">This is the information that other users can see</h3>
 
 
 			<div class="btn-group btnStyle" style="width: 100%;">

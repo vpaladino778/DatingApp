@@ -12,10 +12,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="assets/css/profilelist.css" rel="stylesheet">
+		<link href="assets/css/header.css" rel="stylesheet">
 		<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 	</head>
 	<body>
-		
+		<div class="welcomeMsg">
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-right:20px;">
+			<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Select a Profile!</h1>
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-left:20px;">
+			<h3 style="padding-bottom: 10px;">Please select a profile from the list below.</h3>
+		</div>
 		<div id="profileList" class="container text-center">
 			<div class="selectProf">
 				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select your profile</h2>
