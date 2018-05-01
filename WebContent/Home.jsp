@@ -28,8 +28,9 @@
 
 			<h1
 				style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Welcome
-				to your dating profile!</h1> <img src="assets/img/oar.png" width="64"
-				style="display: inline;">
+				to your dating profile!</h1> 
+				
+			<img src="assets/img/oar.png" width="64" style="display: inline;">
 
 			<h3 style="padding-bottom: 10px;">This is the information that
 				other users can see</h3>
