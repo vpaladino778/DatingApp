@@ -27,7 +27,7 @@
 			<h3 style="padding-bottom: 10px;">With Great Power Comes Great
 				Responsibility</h3>
 			<c:choose>
-				<c:when test="${role='Manager'}">
+				<c:when test="${role=='Manager'}">
 					<div class="btn-group btnStyle" style="width: 100%;">
 
 						<form action="addemployee" method="post" class="text-center">

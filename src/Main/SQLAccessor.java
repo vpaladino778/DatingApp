@@ -24,7 +24,7 @@ public class SQLAccessor {
 	public void newEmployee(String SSN, String role, int hourlyRate, String pass, 
 			String fname, String lname, String email, String street, String city, 
 			String state, String zip, String phone) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
 		ps.setString(1, SSN);
 		ps.setString(2, role);
 		ps.setInt(3, hourlyRate);
@@ -76,6 +76,15 @@ public class SQLAccessor {
 		PreparedStatement ps2 = con.prepareStatement("DELETE FROM Employee WHERE SSN = ?");
 		ps2.setString(2, SSN);
 		ps2.executeUpdate();
+	}
+	
+	public String getSSNFromName(String lname, String fname) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT SSN FROM Person WHERE Person.LastName = ? AND Person.FirstName = ?");
+		ps.setString(1, lname);
+		ps.setString(2, fname);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		return rs.getString("SSN");
 	}
 	
 	public ResultSet monthlySalesReport(String year, String month) throws SQLException {
@@ -159,6 +168,11 @@ public class SQLAccessor {
 				"ORDER BY avgrate DESC LIMIT 0,1");
 		ResultSet rs = ps.executeQuery();
 		return rs;
+	}
+	
+	public ResultSet getAllCustReps() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee INNER JOIN Person ON Employee.SSN = Person.SSN WHERE Employee.Role='CustRep'");
+		return ps.executeQuery();
 	}
 	
 	//-----------------------------------------------------------------------------------------------------

@@ -4,6 +4,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import Main.EmployeeHome;
 import Main.ProfileList;
 import Main.ProfileSignedIn;
 import Main.SQLAccessor;
@@ -32,14 +33,7 @@ public class LoginServlet extends HttpServlet{
 	        	try {
 					boolean employee_check = sqlA.checkEmployee(UserDat.ps1.getSSN());
 					if(employee_check) {
-						ResultSet employee = sqlA.getEmployeeInfo(UserDat.ps1.getSSN());
-						employee.next();
-						request.setAttribute("role", employee.getString("Role"));
-						request.setAttribute("SSN", employee.getString("SSN"));
-						request.setAttribute("wage", employee.getInt("HourlyRate"));
-						request.setAttribute("start", employee.getDate("StartDate"));
-						RequestDispatcher rs = request.getRequestDispatcher("/Employee_Control.jsp");
-						rs.forward(request, response);
+						EmployeeHome.loadEmployeeHome(request, response, sqlA);
 					}
 					else {
 						ArrayList<String> profileList = ProfileList.getProfileList(email);  	
