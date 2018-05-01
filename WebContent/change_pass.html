@@ -12,26 +12,35 @@
 </head>
 
 <body>
-<div class="page-header">
-  <h1>Making New Profile<small>  Choose a new ProfileID</small></h1>
+<div class="page-header pheader">
+  <h1 style="margin-top: 0px; font-weight:bold;">Updating Account Password</h1>
+  <h4>Enter your new password below</h4>
 </div>
 <br>
-<div id="signin" class="container signin">
-<h1>Needs to be changed UX</h1>
-<form class="form-signin" method="post" action="changepass">
-        <h4 class="form-signin-heading">Please type the old password, then the new password twice.</h4>
+
+<div id="signin" class="container signin text-center">
+	<div class="signInh2">
+		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Create and confirm password</h2>
+	</div>
+	<br>
+	<form class="form-signin signInFrm" method="post" action="changepass">
+        
         <div class="form-group" >
-        	<label for="oldpass" class="sr-only">ProfileID </label>
+        	<label for="oldpass" class="sr-only">Old Password</label>
         	<input type="text" id="oldpass" name="oldpass" class="form-control" placeholder="Old Password" required autofocus>
         </div>
-        <div class="form-group" >
-        	<label for="newpass" class="sr-only">ProfileID </label>
-        	<input type="text" id="newpass" name="newpass" class="form-control" placeholder="New Password" required autofocus>
+        <div class="form-group">
+        	<label for="newpass" class="sr-only">New Password</label>
+        	<input type="text" id="newpass" name="newpass" class="form-control" placeholder="New Password" required>
         </div>
         <div class="form-group" >
-        	<label for="checknewpass" class="sr-only">ProfileID </label>
-        	<input type="text" id="checknewpass" name="checknewpass" class="form-control" placeholder="Check New Password" required autofocus>
+        	<label for="checknewpass" class="sr-only">Re-enter Password</label>
+        	<input type="text" id="checknewpass" name="checknewpass" class="form-control" placeholder="Confirm New Password" required autofocus>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-      </form>
+        
+        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Submit</button>
+        
+	</form>
 </div>
+</body>
+</html>
