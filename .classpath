@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="D:/Stony Brook/Spring 2018/CSE 305/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Nick/Downloads/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Nick/Downloads/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vpala/Downloads/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 5.1/mysql-connector-java-5.1.45-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
