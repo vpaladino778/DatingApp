@@ -34,7 +34,7 @@ public class ViewPrivateServlet extends HttpServlet{
 		        String city = rs.getString("City");
 		        String state = rs.getString("State");
 		        String zip = rs.getString("Zipcode");
-		        
+		        request.setAttribute("loggedIn", UserDat.ps1.getProfileID());
 		        request.setAttribute("SSN", SSN);
 		        request.setAttribute("email", email);
 		        request.setAttribute("phone", phone);

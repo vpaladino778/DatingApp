@@ -178,6 +178,20 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
 	
+	public ResultSet getProfileSSN(String profileID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?");
+		ps.setString(1, profileID);
+		return ps.executeQuery();
+	}
+	
+	public String getEmailFromProfile(String pID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN IN(SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?)");
+		ps.setString(1, pID);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		return rs.getString("Email");
+	}
+	
 	public boolean checkEmployee(String SSN) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Employee WHERE Employee.SSN = ?");
 		ps.setString(1, SSN);

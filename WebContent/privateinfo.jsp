@@ -25,7 +25,14 @@
 		<div class="btn-group btnStyle" style="width:100%;">
 		
 			<form action="change_pass.html" method="post" class="text-center">
-				<button type = "submit" style="width:100%;">Change your password!</button>
+				<button type = "submit" style="width:33.33%;">Change your password!</button>
+			</form>
+			<form action="openhome" method="post" class="text-center">
+				<input type="hidden" name = "Username" value = "${loggedIn}"/>
+				<button type = "submit" style="width:33.33%;">Return</button>
+			</form>
+			<form action="login.html" method="post" class="text-center">
+				<button type = "submit" style="width:33.33%;">Logout</button>
 			</form>
 		
 		</div>
