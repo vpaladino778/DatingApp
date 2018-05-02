@@ -9,29 +9,59 @@ public class DateBean implements Serializable{
 	private String Profile1;
 	private String Profile2;
 	private String CustRep;
-	private String Date_Time;
+	private String DateTime;
 	private String Location;
 	private int BookingFee;
-	private String Comment;
+	private String Comments;
 	private int User1Rating;
 	private int User2Rating;
+	private int otherRating;
+	private int yourRating;
 	private String GeoLocation;
 	private String otherUser;
 	
 	public DateBean() {
 		//default values
+		otherRating = 0;
+		yourRating = 0;
 		Profile1 = "";
 		Profile2 = "";
 		CustRep = "";
-		Date_Time = "";
+		DateTime = "";
 		Location = "";
 		BookingFee = 0;
-		Comment = "";
+		Comments = "";
 		User1Rating = 0;
 		User2Rating = 0;
 		GeoLocation = "";
 		
 	}
+	
+	
+
+	public int getOtherRating() {
+		return otherRating;
+	}
+
+
+
+	public void setOtherRating(int otherRating) {
+		this.otherRating = otherRating;
+	}
+
+
+
+	public int getYourRating() {
+		return yourRating;
+	}
+
+
+
+	public void setYourRating(int yourRating) {
+		this.yourRating = yourRating;
+	}
+
+
 
 	public String getProfile1() {
 		return Profile1;
@@ -57,12 +87,12 @@ public class DateBean implements Serializable{
 		CustRep = custRep;
 	}
 
-	public String getDate_Time() {
-		return Date_Time;
+	public String getDateTime() {
+		return DateTime;
 	}
 
-	public void setDate_Time(String date_Time) {
-		Date_Time = date_Time;
+	public void setDateTime(String dateTime) {
+		DateTime = dateTime;
 	}
 
 	public String getLocation() {
@@ -81,12 +111,12 @@ public class DateBean implements Serializable{
 		BookingFee = bookingFee;
 	}
 
-	public String getComment() {
-		return Comment;
+	public String getComments() {
+		return Comments;
 	}
 
-	public void setComment(String comment) {
-		Comment = comment;
+	public void setComments(String comments) {
+		Comments = comments;
 	}
 
 	public int getUser1Rating() {
