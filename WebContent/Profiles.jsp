@@ -31,7 +31,15 @@
 			<h3 style="padding-bottom: 10px;">Discover Local Rowers.</h3>
 		</div>
 
-
+	<div class="btn-group btnStyle" style="width: 100%;">
+			<form action="openhome" method="post" class="text-center">
+				<input type="hidden" name="Username" value="${loggedIn}" />
+				<button type="submit" style="width: 50%; height: 100%;">Return</button>
+			</form>
+			<form action="login.html" method="post" class="text-center">
+				<button type="submit" style="width: 50%; height: 100%;">Logout</button>
+			</form>
+	</div>
 	<!-- Profile List -->
 
 	<ul>
@@ -88,6 +96,13 @@
 							
 								<button type="submit" data-original-title="Like this user" data-toggle="tooltip">
   									 <span class="glyphicon glyphicon-thumbs-up"></span>
+								</button>
+							</form>
+							<form action="openhome" method=post>
+								<input type="hidden" name="Username" value="${profile.profileid}" />
+							
+								<button type="submit" data-original-title="Like this user" data-toggle="tooltip">
+  									 <span class="glyphicon glyphicon-eye-open"></span>
 								</button>
 							</form>
 							</div>
