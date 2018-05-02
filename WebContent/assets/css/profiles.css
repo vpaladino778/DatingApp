@@ -24,7 +24,9 @@
     border-top: 0;
 }
 
-
+.panel-heading{
+	background-color:#990000;
+}
 .table-user-information > tbody > tr > td {
     border-top: 0;
 }

@@ -17,8 +17,7 @@ public class NewRegister {
 			SQLAccessor sqlA = new SQLAccessor();
 			sqlA.addCustomer(SSN, email, profileID, pass1, fname, lname, street, city, state, zip, phone);
 			System.out.println("Reached this point");
-			UserDat.ps1.SSN = SSN;
-			UserDat.ps1.email = email;
+			UserDat.ps1.updateProfileWithID(profileID);
 			st = true;
 		} catch (Exception e) {
 			e.printStackTrace();

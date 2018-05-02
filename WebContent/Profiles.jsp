@@ -16,19 +16,30 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
 <link href="assets/css/profiles.css" rel="stylesheet">
+<link href="assets/css/home.css" rel="stylesheet">
 <link rel='icon' href='favicon.ico' type='image/x-icon'/>
 
 </head>
 
 <body>
+		<div class="welcomeMsg">
 
-	<!-- Header -->
-	<div id="new-header">
-		<script>
-            $("#new-header").load("header.html");
-        </script>
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-right:20px;">
+			<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Discover</h1>
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-left:20px;">
+
+			<h3 style="padding-bottom: 10px;">Discover Local Rowers.</h3>
+		</div>
+
+	<div class="btn-group btnStyle" style="width: 100%;">
+			<form action="openhome" method="post" class="text-center">
+				<input type="hidden" name="Username" value="${loggedIn}" />
+				<button type="submit" style="width: 50%; height: 100%;">Return</button>
+			</form>
+			<form action="login.html" method="post" class="text-center">
+				<button type="submit" style="width: 50%; height: 100%;">Logout</button>
+			</form>
 	</div>
-
 	<!-- Profile List -->
 
 	<ul>
@@ -44,7 +55,6 @@
 							</div>
 							<div class="panel-body">
 								<div class="row">
-
 									<div class=" col-md-9 col-lg-9 ">
 										<table class="table table-user-information">
 											<tbody>
@@ -80,12 +90,21 @@
 								</div>
 							</div>
 							<div class="panel-footer">
-								<a data-original-title="Like this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-primary"><i
-									class="glyphicon glyphicon-thumbs-up"></i></a> <a
-									data-original-title="Like this user" data-toggle="tooltip"
-									type="button" class="btn btn-sm btn-danger"><i
-									class="glyphicon glyphicon-thumbs-down"></i></a> </span>
+							
+							<form action="like" method=post>
+								<input type="hidden" name="liker" value="${profile.profileid}" />
+							
+								<button type="submit" data-original-title="Like this user" data-toggle="tooltip">
+  									 <span class="glyphicon glyphicon-thumbs-up"></span>
+								</button>
+							</form>
+							<form action="openhome" method=post>
+								<input type="hidden" name="Username" value="${profile.profileid}" />
+							
+								<button type="submit" data-original-title="Like this user" data-toggle="tooltip">
+  									 <span class="glyphicon glyphicon-eye-open"></span>
+								</button>
+							</form>
 							</div>
 
 						</div>

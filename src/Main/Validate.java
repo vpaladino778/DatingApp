@@ -23,8 +23,8 @@ public class Validate {
 					ResultSet rs =ps.executeQuery();
 					st = rs.next();
 					String SSN = rs.getString("SSN");
-					UserDat.ps1.SSN = SSN;
-					UserDat.ps1.email = email;
+					UserDat.ps1.setSSN(SSN);
+					UserDat.ps1.setEmail(email);
 		}catch(Exception e)
 		{
 			e.printStackTrace();

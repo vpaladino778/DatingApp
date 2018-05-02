@@ -12,6 +12,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="assets/css/home.css" rel="stylesheet">
+		<link href="assets/css/header.css" rel="stylesheet">
 		<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 <title>Private Information</title>
 </head>
@@ -24,7 +25,14 @@
 		<div class="btn-group btnStyle" style="width:100%;">
 		
 			<form action="change_pass.html" method="post" class="text-center">
-				<button type = "submit" style="width:100%;">Change your password!</button>
+				<button type = "submit" style="width:33.33%;">Change your password!</button>
+			</form>
+			<form action="openhome" method="post" class="text-center">
+				<input type="hidden" name = "Username" value = "${loggedIn}"/>
+				<button type = "submit" style="width:33.33%;">Return</button>
+			</form>
+			<form action="login.html" method="post" class="text-center">
+				<button type = "submit" style="width:33.33%;">Logout</button>
 			</form>
 		
 		</div>

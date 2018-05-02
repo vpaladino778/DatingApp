@@ -12,6 +12,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="assets/css/profilelist.css" rel="stylesheet">
+		<link href="assets/css/header.css" rel="stylesheet">
 		<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 	</head>
 	<body style="height:100%;">
@@ -19,8 +20,7 @@
   			<h1 style="margin-top: 0px; font-weight:bold;">Rower's Meet Profile Selection</h1>
 		</div>
 		<br>
-		
-		<div id="profileList" class="container text-center">
+			<div id="profileList" class="container text-center">
 			<div class="selectProf">
 				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select your profile</h2>
 			</div>

@@ -20,6 +20,10 @@
 		<servlet-class>Servlets.DeleteAndReturn</servlet-class>
 	</servlet>
 	<servlet>
+    	<servlet-name>like</servlet-name>
+    	<servlet-class>Servlets.LikeServlet</servlet-class>
+  	</servlet>
+	<servlet>
 		<servlet-name>changepass</servlet-name>
 		<servlet-class>Servlets.ChangePassServlet</servlet-class>
 	</servlet>
@@ -99,4 +103,9 @@
 		<servlet-name>changepass</servlet-name>
 		<url-pattern>/changepass</url-pattern>
 	</servlet-mapping>
+
+    <servlet-mapping>
+    	<servlet-name>like</servlet-name>
+    	<url-pattern>/like</url-pattern>
+  	</servlet-mapping>
 </web-app>

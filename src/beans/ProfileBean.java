@@ -1,6 +1,8 @@
 package beans;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ProfileBean implements Serializable{
 	private String profileid;
@@ -99,5 +101,22 @@ public class ProfileBean implements Serializable{
 	
 
 
-	
+	/**
+	 * Take a database ResultSet and place all the information into the profilebean
+	 * @param bean
+	 * @param set
+	 */
+	public static void insertInBean(ProfileBean profile, ResultSet resultSet) throws SQLException{
+        profile.setProfileid(resultSet.getString("ProfileID"));
+        profile.setOwnerSSN(resultSet.getString("OwnerSSN"));
+        profile.setAge(resultSet.getInt("Age"));
+        profile.setDatingAgeRangeStart(resultSet.getInt("DatingAgeRangeStart"));
+        profile.setDatingAgeRangeEnd(resultSet.getInt("DatingAgeRangeEnd"));
+        profile.setDatingGeoRange(resultSet.getInt("DatingGeoRange"));
+        profile.setM_f(resultSet.getString("M_F"));
+        profile.setHobbies(resultSet.getString("Hobbies"));
+        profile.setHeight(resultSet.getInt("Height"));
+        profile.setWeight(resultSet.getInt("Weight"));
+        profile.setHairColor(resultSet.getString("ProfileID"));
+	}
 }

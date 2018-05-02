@@ -24,37 +24,62 @@
 	<div id="profileInfo" class="text-center">
 		<div class="welcomeMsg">
 
-			<img src="assets/img/oar.png" width="64" style="display: inline;">
-
-			<h1
-				style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Welcome
-				to your dating profile!</h1> 
-				
-			<img src="assets/img/oar.png" width="64" style="display: inline;">
+			<!-- Header -->
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-right:20px;">
+			<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Welcome to your dating profile!</h1>
+			<img src="assets/img/oar.png" width="64" style="display: inline;padding-left:20px;">
 
 			<h3 style="padding-bottom: 10px;">This is the information that
 				other users can see</h3>
-
-
+			<c:choose>
+			<c:when test="${ssn1==ssn2}">
 			<div class="btn-group btnStyle" style="width: 100%;">
 				<form action="profiles" method="post" class="text-center">
-					<button type="submit" style="width: 20%; height: 100%;">Find
+
+					<button type="submit" style="width: 14.28%; height: 100%;">Find
 						Singles Near You!</button>
 				</form>
 				<form action="viewDates" method="post" class="text-center">
-					<button type="submit" style="width:20%; height: 100%;">View Dates</button>
+					<button type="submit" style="width:14.28%; height: 100%;">View Dates</button>
 				</form>
-				<form action="Edit_Profile.html" method="post" class="text-center">
-					<button type="submit" style="width: 20%; height: 100%;">Edit Profile</button>
+				<form action="Edit_profile.html" method="post" class="text-center">
+					<button type="submit" style="width: 14.28%; height: 100%;">Edit
+						your profile!</button>
+				</form>
+				<form action="likeeslikers" method="post" class="text-center">
+					<button type="submit" style="width: 14.28%; height: 100%;">Likers-Likees</button>
+				</form>
+				<form action="refsug" method="post" class="text-center">
+					<button type="submit" style="width: 14.28%; height: 100%;">Refferrals-Suggestions</button>
 				</form>
 				<form action="viewprivate" method="post" class="text-center">
-					<button type="submit" style="width: 20%; height: 100%;">View Private Info</button>
+					<button type="submit" style="width: 14.28%; height: 100%;">View
+						your private info!</button>
 				</form>
 				<form action="login.html" method="post" class="text-center">
-					<button type="submit" style="width: 20%; height: 100%;">Logout</button>
+					<button type="submit" style="width: 14.28%; height: 100%;">Logout</button>
 				</form>
 
 			</div>
+			</c:when>
+			<c:otherwise>
+			<div class="btn-group btnStyle" style="width: 100%;">
+				<form action="profiles" method="post" class="text-center">
+					<button type="submit" style="width: 25%; height: 100%;">Like Profile</button>
+				</form>
+				<form action="viewprivate" method="post" class="text-center">
+					<button type="submit" style="width: 25%; height: 100%;">Reffer</button>
+				</form>
+				<form action="Edit_Profile.html" method="post" class="text-center">
+					<button type="submit" style="width: 25%; height: 100%;">Return</button>
+				</form>
+				<form action="login.html" method="post" class="text-center">
+					<button type="submit" style="width: 25%; height: 100%;">Logout</button>
+				</form>
+
+			</div>
+			</c:otherwise>
+			</c:choose>
 		</div>
 		<script>
 			$(document).ready(function() {
