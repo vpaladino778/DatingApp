@@ -35,25 +35,29 @@
 			<c:when test="${ssn1==ssn2}">
 			<div class="btn-group btnStyle" style="width: 100%;">
 				<form action="profiles" method="post" class="text-center">
-					<button type="submit" style="width: 16.66%; height: 100%;">Find
+
+					<button type="submit" style="width: 14.28%; height: 100%;">Find
 						Singles Near You!</button>
 				</form>
+				<form action="viewDates" method="post" class="text-center">
+					<button type="submit" style="width:14.28%; height: 100%;">View Dates</button>
+				</form>
 				<form action="Edit_profile.html" method="post" class="text-center">
-					<button type="submit" style="width: 16.66%; height: 100%;">Edit
+					<button type="submit" style="width: 14.28%; height: 100%;">Edit
 						your profile!</button>
 				</form>
 				<form action="likeeslikers" method="post" class="text-center">
-					<button type="submit" style="width: 16.66%; height: 100%;">Likers-Likees</button>
+					<button type="submit" style="width: 14.28%; height: 100%;">Likers-Likees</button>
 				</form>
 				<form action="refsug" method="post" class="text-center">
-					<button type="submit" style="width: 16.66%; height: 100%;">Refferrals-Suggestions</button>
+					<button type="submit" style="width: 14.28%; height: 100%;">Refferrals-Suggestions</button>
 				</form>
 				<form action="viewprivate" method="post" class="text-center">
-					<button type="submit" style="width: 16.66%; height: 100%;">View
+					<button type="submit" style="width: 14.28%; height: 100%;">View
 						your private info!</button>
 				</form>
 				<form action="login.html" method="post" class="text-center">
-					<button type="submit" style="width: 16.66%; height: 100%;">Logout</button>
+					<button type="submit" style="width: 14.28%; height: 100%;">Logout</button>
 				</form>
 
 			</div>

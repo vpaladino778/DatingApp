@@ -42,7 +42,7 @@ public class ViewPrivateServlet extends HttpServlet{
 		        request.setAttribute("city", city);
 		        request.setAttribute("state", state);
 		        request.setAttribute("zip", zip);
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("privateinfo.jsp");
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("/privateinfo.jsp");
 		        dispatcher.forward(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
