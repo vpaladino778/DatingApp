@@ -20,9 +20,11 @@ import beans.ProfileBean;
 public class ProfileDAO {
 	
 	private SQLAccessor accessor;
+	private ProfileSignedIn currentProfile;
 	
 	public ProfileDAO() {
 		accessor = new SQLAccessor();
+		currentProfile = UserDat.ps1;
 	}
 	
 	/**
@@ -45,17 +47,7 @@ public class ProfileDAO {
 		){
             while (resultSet.next()) {
                 ProfileBean profile = new ProfileBean();
-                profile.setProfileid(resultSet.getString("ProfileID"));
-                profile.setOwnerSSN(resultSet.getString("OwnerSSN"));
-                profile.setAge(resultSet.getInt("Age"));
-                profile.setDatingAgeRangeStart(resultSet.getInt("DatingAgeRangeStart"));
-                profile.setDatingAgeRangeEnd(resultSet.getInt("DatingAgeRangeEnd"));
-                profile.setDatingGeoRange(resultSet.getInt("DatingGeoRange"));
-                profile.setM_f(resultSet.getString("M_F"));
-                profile.setHobbies(resultSet.getString("Hobbies"));
-                profile.setHeight(resultSet.getInt("Height"));
-                profile.setWeight(resultSet.getInt("Weight"));
-                profile.setHairColor(resultSet.getString("ProfileID"));
+                ProfileBean.insertInBean(profile, resultSet);
                 profiles.add(profile);
             }
         }
