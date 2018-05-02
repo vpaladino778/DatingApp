@@ -386,17 +386,17 @@ public class SQLAccessor {
 		ps.executeUpdate();
 	}
 	
-	public ResultSet viewPendingDates(String profile1, String profile2) throws SQLException {
+	public ResultSet viewPendingDates(String profile1) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time >= NOW() AND Profile1=? OR Profile2=?");
 		ps.setString(1, profile1);
-		ps.setString(2, profile2);
+		ps.setString(2, profile1);
 		return ps.executeQuery();
 	}
 	
-	public ResultSet viewPastDates(String profile1, String profile2) throws SQLException {
+	public ResultSet viewPastDates(String profile1) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time < NOW() AND Profile1=? OR Profile2=?");
 		ps.setString(1, profile1);
-		ps.setString(2, profile2);
+		ps.setString(2, profile1);
 		return ps.executeQuery();
 	}
 	

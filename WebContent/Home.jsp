@@ -38,19 +38,20 @@
 
 			<div class="btn-group btnStyle" style="width: 100%;">
 				<form action="profiles" method="post" class="text-center">
-					<button type="submit" style="width: 25%; height: 100%;">Find
+					<button type="submit" style="width: 20%; height: 100%;">Find
 						Singles Near You!</button>
 				</form>
+				<form action="viewDates" method="post" class="text-center">
+					<button type="submit" style="width:20%; height: 100%;">View Dates</button>
+				</form>
 				<form action="Edit_Profile.html" method="post" class="text-center">
-					<button type="submit" style="width: 25%; height: 100%;">Edit
-						your profile!</button>
+					<button type="submit" style="width: 20%; height: 100%;">Edit Profile</button>
 				</form>
 				<form action="viewprivate" method="post" class="text-center">
-					<button type="submit" style="width: 25%; height: 100%;">View
-						your private info!</button>
+					<button type="submit" style="width: 20%; height: 100%;">View Private Info</button>
 				</form>
 				<form action="login.html" method="post" class="text-center">
-					<button type="submit" style="width: 25%; height: 100%;">Logout</button>
+					<button type="submit" style="width: 20%; height: 100%;">Logout</button>
 				</form>
 
 			</div>
