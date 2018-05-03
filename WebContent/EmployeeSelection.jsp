@@ -14,11 +14,13 @@
 		<link href="assets/css/profilelist.css" rel="stylesheet">
 		<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 	</head>
-	<body>
-		
+	<body  style="height:100%;">
+		<div class="page-header pheader">
+  			<h1 style="margin-top: 0px; font-weight:bold;">Employee Deletion</h1>
+  			<h3 style="margin-top: 0px; font-weight:bold;">Only delete employees not working for Rower's Meet</h3>
+		</div>
 		<div id="profileList" class="container text-center">
-			<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold;">Delete Employee</h1>
-			<h3 style="padding-bottom: 10px;">Only Delete Employees Who Are No Longer Working For Rowers Meet</h3>
+			
 			<div class="selectProf">
 				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select an employee</h2>
 			</div>
@@ -41,7 +43,7 @@
 				</c:forEach>
 
 			</form>
-			<form action = "second_prof.html" class="createProfFrm">
+			<form class="createProfFrm">
 				<div class="text-center newProfiles">
 					<input id="newProfile" class="btn btn-med btn-primary btn-block bttnProf" onClick="goBack()" name="CancelDelete" value="Cancel">
 				</div>

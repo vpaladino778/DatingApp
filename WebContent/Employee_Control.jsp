@@ -30,20 +30,17 @@
 				<c:when test="${role=='Manager'}">
 					<div class="btn-group btnStyle" style="width: 100%;">
 
-						<form action="addemployee" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Add Employee</button>
+						<form action="AddEmployee.jsp" method="post" class="text-center">
+							<button type="submit" style="width: 25%; height: 100%;">Add Employee</button>
 						</form>
 						<form action="deleteemployee" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Delete Employee</button>
+							<button type="submit" style="width: 25%; height: 100%;">Delete Employee</button>
 						</form>
 						<form action="sales" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Sales Report</button>
-						</form>
-						<form action="revenue" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Revenue By Profile</button>
+							<button type="submit" style="width: 25%; height: 100%;">Sales and Revenue Report</button>
 						</form>
 						<form action="login.html" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Logout</button>
+							<button type="submit" style="width: 25%; height: 100%;">Logout</button>
 						</form>
 					</div>
 				</c:when>

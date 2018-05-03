@@ -24,12 +24,7 @@ public class SQLAccessor {
 	public void newEmployee(String SSN, String role, int hourlyRate, String pass, 
 			String fname, String lname, String email, String street, String city, 
 			String state, String zip, String phone) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO Employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
-		ps.setString(1, SSN);
-		ps.setString(2, role);
-		ps.setInt(3, hourlyRate);
-		ps.executeUpdate();
-		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, FirstName, LastName, Email, Street, City, State, ZipCode, Phone) VALUES (?,?,?,?,?, ?, ?,?, ?,?)");
+		PreparedStatement ps2 = con.prepareStatement("INSERT INTO Person(SSN, Password, FirstName, LastName, Email, Street, City, State, ZipCode, Telephone) VALUES (?,?,?,?,?, ?, ?,?, ?,?)");
 		ps2.setString(1, SSN);
 		ps2.setString(2, pass);
 		ps2.setString(3, fname);
@@ -41,6 +36,11 @@ public class SQLAccessor {
 		ps2.setString(9, zip);
 		ps2.setString(10, phone);
 		ps2.executeUpdate();
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Employee (SSN,Role,StartDate,HourlyRate) VALUES(?,?,NOW(),?)");
+		ps.setString(1, SSN);
+		ps.setString(2, role);
+		ps.setInt(3, hourlyRate);
+		ps.executeUpdate();
 	}
 	
 	// Update employee info
@@ -73,9 +73,6 @@ public class SQLAccessor {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN = ?");
 		ps.setString(1, SSN);
 		ps.executeUpdate();
-		PreparedStatement ps2 = con.prepareStatement("DELETE FROM Employee WHERE SSN = ?");
-		ps2.setString(2, SSN);
-		ps2.executeUpdate();
 	}
 	
 	public String getSSNFromName(String lname, String fname) throws SQLException {
@@ -119,6 +116,11 @@ public class SQLAccessor {
 		ps.setString(1, year);
 		ps.setString(2, month);
 		ps.setString(3, day);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet revenueByCustRep() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT CustRep, BookingFee FROM Date");
 		return ps.executeQuery();
 	}
 	
@@ -407,19 +409,17 @@ public class SQLAccessor {
 	}
 	
 	public ResultSet viewPendingDates(String profile1) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE (Profile1=? OR Profile2=?) AND Date.Date_Time >= NOW()");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time >= NOW() AND Profile1=? OR Profile2=?");
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet viewPastDates(String profile1) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE (Profile1=? OR Profile2=?) AND Date_Time < NOW()");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time < NOW() AND Profile1=? OR Profile2=?");
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
-		ps.executeQuery();
-		ResultSet rs = ps.executeQuery();
-		return rs;
+		return ps.executeQuery();
 	}
 	
 	public ResultSet viewFavorites(String liker)throws SQLException {

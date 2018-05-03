@@ -14,13 +14,19 @@ import Main.SQLAccessor;
 import Main.UserDat;
 
 public class HomePageServlet extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 15563L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 	        response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();
-	        String pID = request.getParameter("Username");
+	        String pID;
+	        if(request.getParameter("Editing")!=null) {
+	        	pID = UserDat.ps1.getProfileID();
+	        }
+	        else {
+	        	pID = request.getParameter("Username");
+	        }
 	        System.out.println("The username recieved is "+pID);
 	        SQLAccessor sqlA = new SQLAccessor();
 			try {
