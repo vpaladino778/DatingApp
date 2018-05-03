@@ -6,7 +6,25 @@
 	<welcome-file-list>
 		<welcome-file>login.html</welcome-file>
 	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>rfsb</servlet-name>
+		<servlet-class>Servlets.ViewRFSBServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rfsb</servlet-name>
+		<url-pattern>/rfsb</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>likeeslikers</servlet-name>
+		<servlet-class>Servlets.ViewLikesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>likeeslikers</servlet-name>
+		<url-pattern>/likeeslikers</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>emaillist</servlet-name>
 		<servlet-class>Servlets.EmailListServlet</servlet-class>
@@ -64,7 +82,6 @@
 		<servlet-name>deleteprof2</servlet-name>
 		<url-pattern>/deleteprof2</url-pattern>
 	</servlet-mapping>
-	
 
 	<servlet>
 		<servlet-name>sales</servlet-name>
