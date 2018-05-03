@@ -42,7 +42,7 @@
 				<form action="viewDates" method="post" class="text-center">
 					<button type="submit" style="width:14.28%; height: 100%;">View Dates</button>
 				</form>
-				<form action="Edit_profile.html" method="post" class="text-center">
+				<form action="Edit_Profile.html" method="post" class="text-center">
 					<button type="submit" style="width: 14.28%; height: 100%;">Edit
 						your profile!</button>
 				</form>

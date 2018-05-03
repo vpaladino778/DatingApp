@@ -20,7 +20,13 @@ public class HomePageServlet extends HttpServlet{
 	            throws ServletException, IOException {
 	        response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();
-	        String pID = request.getParameter("Username");
+	        String pID;
+	        if(request.getParameter("Editing")!=null) {
+	        	pID = UserDat.ps1.getProfileID();
+	        }
+	        else {
+	        	pID = request.getParameter("Username");
+	        }
 	        System.out.println("The username recieved is "+pID);
 	        SQLAccessor sqlA = new SQLAccessor();
 			try {

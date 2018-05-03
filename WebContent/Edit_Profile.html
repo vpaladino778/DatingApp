@@ -1,70 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="ISO-8859-1">
 <title>Edit Profile</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link href="assets/css/signin.css" rel="stylesheet">
-<link rel='icon' href='favicon.ico' type='image/x-icon'/>
-</head>	
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	<link href="assets/css/signin.css" rel="stylesheet">
+	<link href="assets/css/home.css" rel="stylesheet">
+	<link href="assets/css/header.css" rel="stylesheet">
+<link rel='icon' href='favicon.ico' type='image/x-icon' />
+</head>
 
 
 
 <body>
-<div class="page-header pheader">
-  <h1 class="RowersMeet" style="margin-top: 0px; font-weight:bold;">Rower's Meet Edit Profile</h1>
-  <h4 class="RowersMeetDetail">Enter changes to update your profile</h4>
-</div>
-<br>
-<div id="signin" class="container signin text-center">
-	<div class="signInh2">
-		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please edit your info</h2>
+	<div class="page-header pheader">
+		<h1 class="RowersMeet" style="margin-top: 0px; font-weight: bold;">Rower's
+			Meet Edit Profile</h1>
+		<h4 style="padding-bottom: 10px;" class="RowersMeetDetail">Enter
+			changes to update your profile</h4>
+		<div class="btn-group btnStyle" style="width: 100%;">
+			<form action="openhome" method="post" class="text-center">
+				<input type="hidden" name="Editing" value="edit" />
+				<button type="submit" style="width: 25%;">Return</button>
+			</form>
+		</div>
 	</div>
 	<br>
-	<form class="form-edit_profile signInFrm" method="post" action="edit_profile">
-        <div class = "form-group">
-			<label for="regAge" class = "sr-only">Age</label>
-			<input type="age" id="regAge" name="regAge" class="form-control" placeholder="Age" required autofocus>
+	<div id="signin" class="container signin text-center">
+		<div class="signInh2">
+			<h2 class="form-signin-heading"
+				style="background-color: #900; margin-top: 0px; padding-top: 10px; padding-bottom: 10px; color: #fff;">Please
+				edit your info</h2>
 		</div>
-		<div class = "form-group">
-			<label for="regDars" class = "sr-only">Dating Age Start</label>
-			<input type="dating age low" id="regDars" name="regDars" class="form-control" placeholder="Dating Age Lower Bound" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regDare" class = "sr-only">Dating Age End</label>
-			<input type="dating age high" id="regDare" name="regDare" class="form-control" placeholder="Dating Age Upper Bound" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regDgr" class = "sr-only">Dating Geo Range</label>
-			<input type="dating geo range" id="regDgr" name="regDgr" class="form-control" placeholder="Dating Radius (miles)" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regMF" class = "sr-only">Gender</label>
-			<input type="gender" id="regMF" name="regMF" class="form-control" placeholder="Gender" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regHobbies" class = "sr-only">Hobbies</label>
-			<input type="hobbies" id="regHobbies" name="regHobbies" class="form-control" placeholder="Hobbies!" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regHeight" class = "sr-only">Height</label>
-			<input type="height" id="regHeight" name="regHeight" class="form-control" placeholder="Height" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regWeight" class = "sr-only">Weight</label>
-			<input type="weight" id="regWeight" name="regWeight" class="form-control" placeholder="Weight" required autofocus>
-		</div>
-		<div class = "form-group">
-			<label for="regHair" class = "sr-only">Hair Color</label>
-			<input type="hair_color" id="regHair" name="regHair" class="form-control" placeholder="Hair Color" required autofocus>
-		</div>
-        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Submit</button>
-    </form>
-</div>
+		<br>
+		<form class="form-edit_profile signInFrm" method="post"
+			action="edit_profile">
+			<div class="form-group">
+				<label for="regAge" class="sr-only">Age</label> <input type="age"
+					id="regAge" name="regAge" class="form-control" placeholder="Age"
+					required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regDars" class="sr-only">Dating Age Start</label> <input
+					type="dating age low" id="regDars" name="regDars"
+					class="form-control" placeholder="Dating Age Lower Bound" required
+					autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regDare" class="sr-only">Dating Age End</label> <input
+					type="dating age high" id="regDare" name="regDare"
+					class="form-control" placeholder="Dating Age Upper Bound" required
+					autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regDgr" class="sr-only">Dating Geo Range</label> <input
+					type="dating geo range" id="regDgr" name="regDgr"
+					class="form-control" placeholder="Dating Radius (miles)" required
+					autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regMF" class="sr-only">Gender</label> <input
+					type="gender" id="regMF" name="regMF" class="form-control"
+					placeholder="Gender" required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regHobbies" class="sr-only">Hobbies</label> <input
+					type="hobbies" id="regHobbies" name="regHobbies"
+					class="form-control" placeholder="Hobbies!" required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regHeight" class="sr-only">Height</label> <input
+					type="height" id="regHeight" name="regHeight" class="form-control"
+					placeholder="Height" required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regWeight" class="sr-only">Weight</label> <input
+					type="weight" id="regWeight" name="regWeight" class="form-control"
+					placeholder="Weight" required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="regHair" class="sr-only">Hair Color</label> <input
+					type="hair_color" id="regHair" name="regHair" class="form-control"
+					placeholder="Hair Color" required autofocus>
+			</div>
+			<button class="btn btn-primary btn-block bttnSignIn" type="submit">Submit</button>
+		</form>
+
+
+
+	</div>
 
 </body>
 </html>
