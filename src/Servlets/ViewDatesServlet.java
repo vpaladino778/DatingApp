@@ -25,15 +25,17 @@ public class ViewDatesServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         SQLAccessor sqlA = new SQLAccessor();
+        SQLAccessor sqlA2 = new SQLAccessor();
         PrintWriter out = response.getWriter();
         ResultSet rs;
+        ResultSet rs2;
         
         //Need past dates
         //need pending dates
         try {
         	ArrayList<DateBean> pastDates = new ArrayList<DateBean>();
         	ArrayList<DateBean> pendingDates = new ArrayList<DateBean>();
-        	//collect past dates
+        	//collect past datesG
         	
 			rs = sqlA.viewPastDates(UserDat.ps1.getProfileID());
 			while(rs.next()) {
@@ -64,36 +66,41 @@ public class ViewDatesServlet extends HttpServlet {
 				pastDates.add(newDateBean);
 			}
 			request.setAttribute("pastDates", pastDates);
-			
 			for(int i = 0;i < pastDates.size();i++) {
-				System.out.println(pastDates.get(i).getOtherUser());
+				
+				System.out.println("Past Date "+ pastDates.get(i).getOtherUser());
 			}
 			
 			//collect pending dates
 			
-			rs = sqlA.viewPendingDates(UserDat.ps1.getProfileID());
-			while(rs.next()) {
+			rs2 = sqlA2.viewPendingDates(UserDat.ps1.getProfileID());
+			while(rs2.next()) {
 				DateBean newDateBean = new DateBean();
-				String Profile1 = rs.getString("Profile1");
-				String Profile2 = rs.getString("Profile2");
+				String Profile1 = rs2.getString("Profile1");
+				String Profile2 = rs2.getString("Profile2");
+				int User1Rating = rs2.getInt("User1Rating");
+				int User2Rating = rs2.getInt("User2Rating");
 				newDateBean.setProfile1(Profile1);
 				newDateBean.setProfile2(Profile2); 
 				if(Profile1.equals(UserDat.ps1.getProfileID())) {
 					newDateBean.setOtherUser(Profile2);
+					newDateBean.setOtherRating(User2Rating);
+					newDateBean.setYourRating(User1Rating);
 				} else {
 					newDateBean.setOtherUser(Profile1);
+					newDateBean.setOtherRating(User1Rating);
+					newDateBean.setYourRating(User2Rating);
 				}
-				newDateBean.setCustRep(rs.getString("CustRep"));
-				newDateBean.setDateTime(rs.getString("Date_Time"));
-				newDateBean.setLocation(rs.getString("Location"));
-				newDateBean.setBookingFee(rs.getInt("BookingFee"));
-				newDateBean.setComments(rs.getString("Comments"));
-				newDateBean.setUser1Rating(rs.getInt("User1Rating"));
-				newDateBean.setUser2Rating(rs.getInt("User2Rating"));
-				newDateBean.setGeoLocation(rs.getString("GeoLocation"));
+				newDateBean.setCustRep(rs2.getString("CustRep"));
+				newDateBean.setDateTime(rs2.getString("Date_Time"));
+				newDateBean.setLocation(rs2.getString("Location"));
+				newDateBean.setBookingFee(rs2.getInt("BookingFee"));
+				newDateBean.setComments(rs2.getString("Comments"));
+				newDateBean.setGeoLocation(rs2.getString("GeoLocation"));
 				pendingDates.add(newDateBean);
 			}
 			request.setAttribute("pendingDates", pendingDates);
+		    
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("ViewDates.jsp");
 		    dispatcher.forward(request, response);
         	

@@ -407,17 +407,19 @@ public class SQLAccessor {
 	}
 	
 	public ResultSet viewPendingDates(String profile1) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time >= NOW() AND Profile1=? OR Profile2=?");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE (Profile1=? OR Profile2=?) AND Date.Date_Time >= NOW()");
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet viewPastDates(String profile1) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time < NOW() AND Profile1=? OR Profile2=?");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE (Profile1=? OR Profile2=?) AND Date_Time < NOW()");
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
-		return ps.executeQuery();
+		ps.executeQuery();
+		ResultSet rs = ps.executeQuery();
+		return rs;
 	}
 	
 	public ResultSet viewFavorites(String liker)throws SQLException {
