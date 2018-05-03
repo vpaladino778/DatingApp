@@ -79,5 +79,4 @@ public class ProfileSignedIn {
 			profileBean = new ProfileBean();
 		}
 	}
-
 }

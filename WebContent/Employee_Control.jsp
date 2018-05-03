@@ -30,7 +30,7 @@
 				<c:when test="${role=='Manager'}">
 					<div class="btn-group btnStyle" style="width: 100%;">
 
-						<form action="addemployee" method="post" class="text-center">
+						<form action="AddEmployee.jsp" method="post" class="text-center">
 							<button type="submit" style="width: 20%; height: 100%;">Add Employee</button>
 						</form>
 						<form action="deleteemployee" method="post" class="text-center">
