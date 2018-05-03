@@ -98,8 +98,6 @@ public class ProfileBean implements Serializable{
 	public void setHairColor(String haircolor) {
 		this.haircolor = haircolor;
 	}
-	
-
 
 	/**
 	 * Take a database ResultSet and place all the information into the profilebean

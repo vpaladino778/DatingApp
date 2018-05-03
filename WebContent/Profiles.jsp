@@ -22,26 +22,46 @@
 </head>
 
 <body>
-		<div class="welcomeMsg">
-
-			<img src="assets/img/oar.png" width="64" style="display: inline;padding-right:20px;">
-			<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Discover</h1>
-			<img src="assets/img/oar.png" width="64" style="display: inline;padding-left:20px;">
-
-			<h3 style="padding-bottom: 10px;">Discover Local Rowers.</h3>
+	<div class="row no-gutters">
+		<div class="col">
+			<div class="welcomeMsg" style="text-align:center">
+					<img src="assets/img/oar.png" width="64" style="display: inline;padding-right:20px;">
+					<h1 style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Discover</h1>
+					<img src="assets/img/oar.png" width="64" style="display: inline;padding-left:20px;">
+		
+					<h3 style="margin-bottom: 0px;">Discover Local Rowers.</h3>
+			</div>
+		
+			<div class="btn-group btnStyle" style="width: 100%;margin-top: 0px;">
+					<form action="openhome" method="post" class="text-center">
+						<input type="hidden" name="Username" value="${loggedIn}" />
+						<button type="submit" style="width: 50%; height: 100%;">Return</button>
+					</form>
+					<form action="login.html" method="post" class="text-center">
+						<button type="submit" style="width: 50%; height: 100%;">Logout</button>
+					</form>
+			</div>
 		</div>
-
-	<div class="btn-group btnStyle" style="width: 100%;">
-			<form action="openhome" method="post" class="text-center">
-				<input type="hidden" name="Username" value="${loggedIn}" />
-				<button type="submit" style="width: 50%; height: 100%;">Return</button>
-			</form>
-			<form action="login.html" method="post" class="text-center">
-				<button type="submit" style="width: 50%; height: 100%;">Logout</button>
-			</form>
 	</div>
+	<div class="container">
+	<!-- Search Bar -->
+
+    <div class="row">
+        <div class="col">
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+            	</div>
+            </form>
+        </div>
+    </div>
+	
 	<!-- Profile List -->
 
+	<div class="row">
+	<div class="col">
 	<ul>
 		<c:forEach items="${profiles}" var="profile">
 
@@ -50,7 +70,7 @@
 					<div
 						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 						<div class="panel panel-info">
-							<div class="panel-heading">
+							<div class="red-background panel-heading">
 								<h3 class="panel-title">${profile.profileid}</h3>
 							</div>
 							<div class="panel-body">
@@ -62,12 +82,10 @@
 													<td>Age</td>
 													<td>${profile.age}</td>
 												</tr>
-
 												<tr>
 													<td>Gender</td>
 													<td>${profile.m_f}</td>
 												</tr>
-
 												<tr>
 													<td>Hobbies:</td>
 													<td>${profile.hobbies}</td>
@@ -94,14 +112,14 @@
 							<form action="like" method=post>
 								<input type="hidden" name="liker" value="${profile.profileid}" />
 							
-								<button type="submit" data-original-title="Like this user" data-toggle="tooltip">
+								<button type="submit" data-original-title="Like this user" data-toggle="tooltip"  style="display:inline;">
   									 <span class="glyphicon glyphicon-thumbs-up"></span>
 								</button>
 							</form>
 							<form action="openhome" method=post>
 								<input type="hidden" name="Username" value="${profile.profileid}" />
 							
-								<button type="submit" data-original-title="Like this user" data-toggle="tooltip">
+								<button type="submit" data-original-title="Like this user" data-toggle="tooltip"  style="display:inline;">
   									 <span class="glyphicon glyphicon-eye-open"></span>
 								</button>
 							</form>
@@ -116,5 +134,8 @@
 
 		</c:forEach>
 	</ul>
+	</div>
+	</div>
+	</div>
 </body>
 </html>

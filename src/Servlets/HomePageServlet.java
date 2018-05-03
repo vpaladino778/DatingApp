@@ -14,7 +14,7 @@ import Main.SQLAccessor;
 import Main.UserDat;
 
 public class HomePageServlet extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 15563L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {

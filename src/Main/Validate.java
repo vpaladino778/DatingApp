@@ -12,7 +12,6 @@ public class Validate {
 		try{
 			//loading drivers for mysql
 			Class.forName("com.mysql.jdbc.Driver");
-
 					//creating connection with the database 
 					Connection con=DriverManager.getConnection
 							("jdbc:mysql://mysql-305project.cwetgjbvvo5t.us-west-2.rds.amazonaws.com:3306/DatingDB","root","password");
@@ -29,7 +28,6 @@ public class Validate {
 		{
 			e.printStackTrace();
 		}
-		
 		return st;
 
 	}

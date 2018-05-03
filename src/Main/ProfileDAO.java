@@ -26,7 +26,6 @@ public class ProfileDAO {
 		accessor = new SQLAccessor();
 		currentProfile = UserDat.ps1;
 	}
-	
 	/**
 	 * 
 	 * @return List of ProfileBean objects that contain information from Profile table
@@ -47,8 +46,24 @@ public class ProfileDAO {
 		){
             while (resultSet.next()) {
                 ProfileBean profile = new ProfileBean();
-                ProfileBean.insertInBean(profile, resultSet);
-                profiles.add(profile);
+                profile.setProfileid(resultSet.getString("ProfileID"));
+                profile.setOwnerSSN(resultSet.getString("OwnerSSN"));
+                profile.setAge(resultSet.getInt("Age"));
+                profile.setDatingAgeRangeStart(resultSet.getInt("DatingAgeRangeStart"));
+                profile.setDatingAgeRangeEnd(resultSet.getInt("DatingAgeRangeEnd"));
+                profile.setDatingGeoRange(resultSet.getInt("DatingGeoRange"));
+                profile.setM_f(resultSet.getString("M_F"));
+                profile.setHobbies(resultSet.getString("Hobbies"));
+                profile.setHeight(resultSet.getInt("Height"));
+                profile.setWeight(resultSet.getInt("Weight"));
+                profile.setHairColor(resultSet.getString("ProfileID"));                ProfileBean signedIn = currentProfile.getProfile();
+                int age = profile.getAge();
+                if(profile.getOwnerSSN() != signedIn.getOwnerSSN()) {
+                    //Check if age is within limits
+                	if(age >= signedIn.getDatingAgeRangeStart()  && signedIn.getDatingAgeRangeEnd() >= age) {
+                		profiles.add(profile);
+                	}
+                }
             }
         }
 		return profiles;
