@@ -12,7 +12,7 @@ public class ProfileList {
 		public static ArrayList<String> getAllProfiles() throws SQLException{
 			ArrayList<String> profileList = new ArrayList<String>();
 			SQLAccessor sqlA = new SQLAccessor();
-			ResultSet rs = sqlA.getAllProfiles();
+			ResultSet rs = sqlA.getAllProfileIDs();
 			while(rs.next()) {
 				profileList.add(rs.getString("ProfileID"));
 			}
