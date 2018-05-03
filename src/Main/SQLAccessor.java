@@ -1,4 +1,4 @@
-	package Main;
+package Main;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -220,6 +220,11 @@ public class SQLAccessor {
 			System.out.println("The old password was incorrect");
 			return false;
 		}
+	}
+	
+	public ResultSet getAllProfiles() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT ProfileID FROM Profile");
+		return ps.executeQuery();
 	}
 	
 	public void recordDate(String p1, String p2, String cr, String location, int booking) throws SQLException {

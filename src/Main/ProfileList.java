@@ -4,11 +4,21 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProfileList {
 
-		
+		public static ArrayList<String> getAllProfiles() throws SQLException{
+			ArrayList<String> profileList = new ArrayList<String>();
+			SQLAccessor sqlA = new SQLAccessor();
+			ResultSet rs = sqlA.getAllProfiles();
+			while(rs.next()) {
+				profileList.add(rs.getString("ProfileID"));
+			}
+			return profileList;
+		}
+	
 		public static ArrayList<String> getProfileList(String email){
 			ArrayList<String> profileList = new ArrayList<String>();
 			//Query the email address to the SSN and get all of the 

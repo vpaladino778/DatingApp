@@ -32,8 +32,8 @@
 				<h2 class="toggleTitle">Toggle between Past and Pending Dates</h2>
 			</div>
 			<div class="btn-group btnStyle" style="width: 100%; margin: 0 auto;">
-				<button type="button" style="width: 50%;" onClick="">View Past</button>
-				<button type="button" style="width: 50%;" onClick="">View Pending</button>
+				<button class="viewPast" type="button" style="width: 50%;" onClick="clickPast();">View Past</button>
+				<button class="viewPending" type="button" style="width: 50%;" onClick="clickPending();">View Pending</button>
 			</div>
 	
 		</div>
@@ -42,8 +42,12 @@
 		<div class="pastDateCard">
 			<div class="btnManager text-center" style="width: 100%; margin:0 auto;">
 				<div class="btn-group btnStyle" style="width: 100%; margin: 0 auto;">
-					<button type="button" style="width: 50%;" onClick=""></button>
-					<button type="button" style="width: 50%;" onClick="">View Pending</button>
+					<form action="" method="post" class="text-center">
+						<button type="button" style="width: 50%;" onClick="">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					</form>
+					<form action="" method="post" class="text-center">
+						<button type="button" style="width: 50%;" onClick="">Rate<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					</form>
 				</div>
 	
 			</div>
@@ -71,10 +75,68 @@
     	</div>
 		</c:forEach>
 		</div>
+		<div class="pendingDateDiv">
+		<c:forEach items="${pendingDates}" var="pendingDate">
+		<div class="pendingDateCard">
+			<div class="btnManager text-center" style="width: 100%; margin:0 auto;">
+				<div class="btn-group btnStyle" style="width: 100%; margin: 0 auto;">
+					<form action="" method="post" class="text-center">
+						<button type="button" style="width: 50%;" onClick="">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					</form>
+					<form action="" method="post" class="text-center">
+						<button type="button" style="width: 50%;" onClick="">Cancel<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					</form>
+				</div>
+	
+			</div>
+		
+			<table>
+				<tr>
+					<td>Met with:</td>
+					<td>${pendingDate.otherUser}</td>
+					<td>Started at:</td> 
+					<td>${pendingDate.dateTime}</td>
+				</tr>
+				<tr>
+					<td>Met at:</td>
+					<td>${pendingDate.location}</td>
+					<td>Thoughts on the date:</td>
+					<td>${pendingDate.comments}</td>
+				</tr>
+				<tr>
+					<td>Your Rating</td>
+					<td>${pendingDate.yourRating}</td>
+					<td>Their Rating</td>
+					<td>${pendingDate.otherRating}</td>
+				</tr>
+			</table>
+    	</div>
+		</c:forEach>
+		</div>
+		
 	</div>
 </div>
 <script>
-	
+	$(document).ready(function() {
+		$(".viewPending").click();  
+	}) ;
+
+	function clickPast(){
+		//show past, fade in past, fade out pending
+		$(".viewPast").css("background-color", "#890000");
+		$(".viewPending").css("background-color", "#900");
+		$(".pendingDateDiv").fadeOut(100);
+		$(".pastDateDiv").fadeIn(100);
+	}
+	function clickPending(){
+		//show pending, fade in pending, fade out past
+		$(".pastDateDiv").fadeOut(100);
+		$(".pendingDateDiv").fadeIn(100);
+		//set background color to dark red #890000
+		$(".viewPending").css("background-color", "#890000");
+		//set background color of past to red #900
+		$(".viewPast").css("background-color", "#900");
+	}
 </script>
 
 </body>

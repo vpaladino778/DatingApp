@@ -25,7 +25,7 @@
 				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select your profile</h2>
 			</div>
 			
-			<form action="openhome" method="post" class="text-center selectProfFrm">
+			<form method="post" class="text-center selectProfFrm">
 			<table id="mainTable">
 				<tr>
 					<th colspan="2" style="background-color: #900; color:#fff;">Private Information</th>
