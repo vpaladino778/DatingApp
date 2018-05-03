@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Main.EmployeeHome;
+import Main.MainHome;
 import Main.SQLAccessor;
 import Main.UserDat;
 
@@ -26,7 +27,7 @@ public class ReferProfServlet extends HttpServlet{
 		try {
 			System.out.println(UserDat.ps1.getProfileID()+", "+prof1+", "+ prof2);
 			sqlA.refferProfile(UserDat.ps1.getProfileID(), prof1, prof2);
-			EmployeeHome.loadEmployeeHome(request, response, sqlA);
+			MainHome.profileHome(request, response,0);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
