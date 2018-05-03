@@ -8,41 +8,57 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="ISO-8859-1">
-		<title>Login</title>
+		<title>Profile Selection</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="assets/css/profilelist.css" rel="stylesheet">
+		<link href="assets/css/header.css" rel="stylesheet">
 		<link rel='icon' href='favicon.ico' type='image/x-icon'/>
 	</head>
-	<body  style="height:100%;">
+	<body style="height:100%;">
 		<div class="page-header pheader">
-  			<h1 style="margin-top: 0px; font-weight:bold;">Employee Deletion</h1>
-  			<h3 style="margin-top: 0px; font-weight:bold;">Only delete employees not working for Rower's Meet</h3>
+  			<h1 style="margin-top: 0px; font-weight:bold;">Rowers Meet Contact List</h1>
 		</div>
-		<div id="profileList" class="container text-center">
-			
+		<br>
+			<div id="profileList" class="container text-center">
 			<div class="selectProf">
-				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select an employee</h2>
+				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">ProfileIDs, names, and their emails</h2>
 			</div>
 			
-			<form action="deleteemp2" method="post" class="text-center selectProfFrm">		
-				<c:forEach var="employees" items="${eList}">
-					<input id="employee" class="btn btn-lg btn-primary btn-block bttnProf" type="Submit" name="Employee" value="${employees}">
+			<form method="post" class="text-center selectProfFrm">
+			<table id="mainTable">
+				<tr>
+					<th colspan="2" style="background-color: #900; color:#fff;">Contact info:</th>
+				</tr>
+				<c:forEach var="contacts" items="${contacts}">
+				<tr>
+					<td><c:out value = "${contacts.lname}, ${contacts.fname}"/></td>
+				</tr>
+				<tr>
+					<td><c:out value = "ProfileID: ${contacts.pID}"/></td>
+				</tr>
+				<tr>
+					<td><c:out value = "Email: ${contacts.email}"/></td>
+				</tr>
+				<tr>
+					<td> </td>
+				</tr>
 				</c:forEach>
+			
+			</table>
 
 			</form>
 			<form class="createProfFrm">
 				<div class="text-center newProfiles">
-					<input id="newProfile" class="btn btn-med btn-primary btn-block bttnProf" onClick="goBack()" name="CancelDelete" value="Cancel">
+					<input id="Return" class="btn btn-med btn-primary btn-block bttnProf" onClick="goBack()" name="Return" value="Return">
 				</div>
 			</form>
-			<script>
+
+		</div>
+		<script>
 			function goBack(){
 				window.history.back();
 			}
-			</script>
-
-		</div>
-
+		</script>
 	</body>
 </html>

@@ -17,18 +17,18 @@
 	</head>
 	<body style="height:100%;">
 		<div class="page-header pheader">
-  			<h1 style="margin-top: 0px; font-weight:bold;">Rower's Meet Profile Selection</h1>
+  			<h1 style="margin-top: 0px; font-weight:bold;">Rowers Meet Sales Report</h1>
 		</div>
 		<br>
 			<div id="profileList" class="container text-center">
 			<div class="selectProf">
-				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select your profile</h2>
+				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Here is some sales information</h2>
 			</div>
 			
-			<form action="openhome" method="post" class="text-center selectProfFrm">
+			<form method="post" class="text-center selectProfFrm">
 			<table id="mainTable">
 				<tr>
-					<th colspan="2" style="background-color: #900; color:#fff;">Private Information</th>
+					<th colspan="2" style="background-color: #900; color:#fff;">Contact Info:</th>
 				</tr>
 				<c:forEach var="salesReports" items="${salesReports}">
 				<tr>

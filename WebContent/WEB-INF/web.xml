@@ -24,6 +24,64 @@
 		<servlet-name>likeeslikers</servlet-name>
 		<url-pattern>/likeeslikers</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>emaillist</servlet-name>
+		<servlet-class>Servlets.EmailListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emaillist</servlet-name>
+		<url-pattern>/emaillist</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
+		<servlet-name>referprof</servlet-name>
+		<servlet-class>Servlets.ReferProfServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>referprof</servlet-name>
+		<url-pattern>/referprof</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>suggestprof</servlet-name>
+		<servlet-class>Servlets.SuggestProfServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>suggestprof</servlet-name>
+		<url-pattern>/suggestprof</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>recorddate</servlet-name>
+		<servlet-class>Servlets.RecordDateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>recorddate</servlet-name>
+		<url-pattern>/recorddate</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>deleteprofile</servlet-name>
+		<servlet-class>Servlets.DeleteProfileListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteprofile</servlet-name>
+		<url-pattern>/deleteprofile</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>deleteprof2</servlet-name>
+		<servlet-class>Servlets.DeleteProfileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteprof2</servlet-name>
+		<url-pattern>/deleteprof2</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>sales</servlet-name>
@@ -146,12 +204,12 @@
 	
 	
 	<servlet>
-		<servlet-name>editprofile</servlet-name>
+		<servlet-name>edit_profile</servlet-name>
 		<servlet-class>Servlets.EditProfileServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>editprofile</servlet-name>
-		<url-pattern>/editprofile</url-pattern>
+		<servlet-name>edit_profile</servlet-name>
+		<url-pattern>/edit_profile</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -166,10 +224,3 @@
 	
 
 </web-app>
-	
-	
-	
-	
-
-
-

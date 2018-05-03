@@ -180,9 +180,23 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
 	
+	public void suggestProfile(String prof1, String prof2, String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO SuggestedBy(CustRep, Profile1, Profile2, Date_Time) VALUES(?,?,?,NOW())");
+		ps.setString(1, SSN);
+		ps.setString(2, prof1);
+		ps.setString(3, prof2);
+		ps.executeUpdate();
+	}
+	
 	public ResultSet getProfileSSN(String profileID) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?");
 		ps.setString(1, profileID);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet getPrivateInfoFromProfile(String pID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN IN(SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?)");
+		ps.setString(1, pID);
 		return ps.executeQuery();
 	}
 	
@@ -222,12 +236,16 @@ public class SQLAccessor {
 		}
 	}
 	
-	public void recordDate(String p1, String p2, String cr, String location, int booking) throws SQLException {
+	public ResultSet getAllProfileIDs() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT ProfileID FROM Profile");
+		return ps.executeQuery();
+	}
+	
+	public void recordDate(String p1, String p2, String cr, Date date, String location, int booking) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Date(Profile1, Profile2, CustRep, Date_Time, Location, BookingFee) VALUES (?,?,?,?,?,?)");
 		ps.setString(1, p1);
 		ps.setString(2, p2);
 		ps.setString(3, cr);
-		Date date = new Date();
 		Object param = new java.sql.Timestamp(date.getTime());
 		ps.setObject(4, param);
 		ps.setString(5, location);
@@ -426,12 +444,11 @@ public class SQLAccessor {
 		return ps.executeQuery();
 	}
 	
-	public void refferProfile(String profileA, String profileB, String profileC, String date) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO Referral (ProfileA, ProfileB, ProfileC, Date_Time) VALUES (?, ?, ?, ?)");
+	public void refferProfile(String profileA, String profileB, String profileC) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Referral (ProfileA, ProfileB, ProfileC, Date_Time) VALUES (?, ?, ?, NOW())");
 		ps.setString(1, profileA);
 		ps.setString(2, profileB);
 		ps.setString(3, profileC);
-		ps.setString(4, date);
 		ps.executeUpdate();
 	}
 	

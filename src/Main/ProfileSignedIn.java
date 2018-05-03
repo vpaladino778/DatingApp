@@ -73,8 +73,9 @@ public class ProfileSignedIn {
 		if(profileID!= null) {
 			accessor = new SQLAccessor();
 			ResultSet resultSet = accessor.getProfileInfo(profileID);
-			resultSet.next();
-			ProfileBean.insertInBean(profileBean, resultSet);
+			if(resultSet.next()) {
+				ProfileBean.insertInBean(profileBean, resultSet);
+			}
 		}else {
 			profileBean = new ProfileBean();
 		}
@@ -86,8 +87,9 @@ public class ProfileSignedIn {
 		PreparedStatement ps = accessor.getConnection().prepareStatement("SELECT * FROM Profile WHERE Profile.OwnerSSN = ?");
 		ps.setString(1, SSN);
 		ResultSet resultSet = ps.executeQuery();
-		resultSet.next();
-		ProfileBean.insertInBean(profileBean, resultSet);
+		if(resultSet.next()) {
+			ProfileBean.insertInBean(profileBean, resultSet);
+		}
 		}else {
 			profileBean = new ProfileBean();
 		}
