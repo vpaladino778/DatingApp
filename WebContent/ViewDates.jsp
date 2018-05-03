@@ -81,10 +81,15 @@
 			<div class="btnManager text-center" style="width: 100%; margin:0 auto;">
 				<div class="btn-group btnStyle" style="width: 100%; margin: 0 auto;">
 					<form action="" method="post" class="text-center">
-						<button type="button" style="width: 50%;" onClick="">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+						
+						<button type="button" style="width: 50%;">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
 					</form>
-					<form action="" method="post" class="text-center">
-						<button type="button" style="width: 50%;" onClick="">Cancel<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					<form action="canceldate" method="post" class="text-center">
+						<input type="hidden" name="cancelOtherUser" value="${pendingDate.otherUser}">
+						<input type="hidden" name="cancelProfile1" value="${pendingDate.profile1}">
+						<input type="hidden" name="cancelProfile2" value="${pendingDate.profile2}">
+						<input type="hidden" name="cancelDateTime" value="${pendingDate.dateTime}">		
+						<button type="button" style="width: 50%;">Cancel<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
 					</form>
 				</div>
 	

@@ -8,6 +8,15 @@
 	</welcome-file-list>
 	
 	<servlet>
+		<servlet-name>canceldate</servlet-name>
+		<servlet-class>Servlets.CancelDateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>canceldate</servlet-name>
+		<url-pattern>/canceldate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>rfsb</servlet-name>
 		<servlet-class>Servlets.ViewRFSBServlet</servlet-class>
 	</servlet>
