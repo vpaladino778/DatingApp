@@ -41,22 +41,26 @@
 			<div class="col-sm">
 				<form action="openhome" method="post" class="text-center">
 					<input type="hidden" name="Username" value="${loggedIn}" />
-					<button type="submit" style="width: 33%; height: 100%;">Return</button>
+					<button type="submit" style="width: 50%; height: 100%;">Return</button>
 				</form>
 			</div>
 
 			<div class="col-sm">
 				<form action="login.html" method="post" class="text-center">
-					<button type="submit" style="width: 33%; height: 100%;">Logout</button>
+					<button type="submit" style="width: 50%; height: 100%;">Logout</button>
 				</form>
 			</div>
-			<div class="col-sm">
+			
+		</div>
+	</div>
+	<div class="col-sm">
 				<div id="custom-search-input">
 					<div class="input-group">
 						<form action="profiles" method="post">
-							<input type="text" class="form-control input-lg"
-								name="searchField" placeholder="Search" /> <span
+							<span
 								class="input-group-btn">
+							<input type="text" class="form-control input-lg"
+								name="searchField" placeholder="Search" /> 
 								<button class="btn btn-info btn-lg" type="button">
 									<i class="glyphicon glyphicon-search"></i>
 								</button>
@@ -65,8 +69,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 	<div class="container">
 		<!-- Search Bar -->
 		<br>
