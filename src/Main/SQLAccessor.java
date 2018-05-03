@@ -73,9 +73,6 @@ public class SQLAccessor {
 		PreparedStatement ps = con.prepareStatement("DELETE FROM Person WHERE SSN = ?");
 		ps.setString(1, SSN);
 		ps.executeUpdate();
-		PreparedStatement ps2 = con.prepareStatement("DELETE FROM Employee WHERE SSN = ?");
-		ps2.setString(2, SSN);
-		ps2.executeUpdate();
 	}
 	
 	public String getSSNFromName(String lname, String fname) throws SQLException {
