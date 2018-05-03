@@ -186,6 +186,12 @@ public class SQLAccessor {
 		return ps.executeQuery();
 	}
 	
+	public ResultSet getPrivateInfoFromProfile(String pID) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN IN(SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?)");
+		ps.setString(1, pID);
+		return ps.executeQuery();
+	}
+	
 	public String getEmailFromProfile(String pID) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Person WHERE Person.SSN IN(SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?)");
 		ps.setString(1, pID);
@@ -222,7 +228,7 @@ public class SQLAccessor {
 		}
 	}
 	
-	public ResultSet getAllProfiles() throws SQLException {
+	public ResultSet getAllProfileIDs() throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT ProfileID FROM Profile");
 		return ps.executeQuery();
 	}

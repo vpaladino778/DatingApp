@@ -50,7 +50,7 @@
 	
 		<form method = "post" class = "infoTable">
 		<div class="tableDiv">
-		<table id="mainTable">
+		<table id="mainTable" class = "text-center">
 				<tr>
 					<th colspan="2" style="background-color: #900; color:#fff;">Private Information</th>
 				</tr>

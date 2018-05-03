@@ -17,37 +17,34 @@
 	</head>
 	<body style="height:100%;">
 		<div class="page-header pheader">
-  			<h1 style="margin-top: 0px; font-weight:bold;">Rowers Meet Sales Report</h1>
+  			<h1 style="margin-top: 0px; font-weight:bold;">Rowers Meet Contact List</h1>
 		</div>
 		<br>
 			<div id="profileList" class="container text-center">
 			<div class="selectProf">
-				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Here is some sales information</h2>
+				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">ProfileIDs, names, and their emails</h2>
 			</div>
 			
 			<form method="post" class="text-center selectProfFrm">
 			<table id="mainTable">
 				<tr>
-					<th colspan="2" style="background-color: #900; color:#fff;">Contact Info:</th>
+					<th colspan="2" style="background-color: #900; color:#fff;">Contact info:</th>
 				</tr>
-				<c:forEach var="salesReports" items="${salesReports}">
+				<c:forEach var="contacts" items="${contacts}">
 				<tr>
-					<td><c:out value = "${salesReports.custRep}"/></td>
-					<td><c:out value="${salesReports.bookFee}"/></td>
+					<td><c:out value = "${contacts.lname}, ${contacts.fname}"/></td>
+				</tr>
+				<tr>
+					<td><c:out value = "ProfileID: ${contacts.pID}"/></td>
+				</tr>
+				<tr>
+					<td><c:out value = "Email: ${contacts.email}"/></td>
+				</tr>
+				<tr>
+					<td> </td>
 				</tr>
 				</c:forEach>
-				<tr>
-					<td>Most Revenue:</td>
-				</tr>
-				<tr>
-					<td>ProfileID:</td>
-					<td><c:out value="${pID}"/></td>
-				</tr>
-				<tr>
-					<td>It generated:	</td>
-					<td><c:out value="${revenue}"/></td>
-					<td> dollars!</td>
-				</tr>
+			
 			</table>
 
 			</form>

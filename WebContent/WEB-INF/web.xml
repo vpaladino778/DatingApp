@@ -7,6 +7,15 @@
 		<welcome-file>login.html</welcome-file>
 	</welcome-file-list>
 
+	<servlet>
+		<servlet-name>emaillist</servlet-name>
+		<servlet-class>Servlets.EmailListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emaillist</servlet-name>
+		<url-pattern>/emaillist</url-pattern>
+	</servlet-mapping>
+	
 
 	<servlet>
 		<servlet-name>deleteprofile</servlet-name>

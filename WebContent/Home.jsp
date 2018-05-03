@@ -64,7 +64,7 @@
 			</c:when>
 			<c:otherwise>
 			<div class="btn-group btnStyle" style="width: 100%;">
-				<form action="profiles" method="post" class="text-center">
+				<form action="like" method="post" class="text-center">
 					<button type="submit" style="width: 25%; height: 100%;">Like Profile</button>
 				</form>
 				<form action="viewprivate" method="post" class="text-center">
