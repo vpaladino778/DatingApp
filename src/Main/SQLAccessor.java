@@ -180,6 +180,14 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------------
 	//Customer Representative Level Transactions
 	
+	public void suggestProfile(String prof1, String prof2, String SSN) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO SuggestedBy(CustRep, Profile1, Profile2, Date_Time) VALUES(?,?,?,NOW())");
+		ps.setString(1, SSN);
+		ps.setString(2, prof1);
+		ps.setString(3, prof2);
+		ps.executeUpdate();
+	}
+	
 	public ResultSet getProfileSSN(String profileID) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT OwnerSSN FROM Profile WHERE Profile.ProfileID = ?");
 		ps.setString(1, profileID);
