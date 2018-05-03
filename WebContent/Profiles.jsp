@@ -53,7 +53,7 @@
 			<div class="col-sm">
 				<div id="custom-search-input">
 					<div class="input-group">
-						<form action="search" method="post">
+						<form action="profiles" method="post">
 							<input type="text" class="form-control input-lg"
 								name="searchField" placeholder="Search" /> <span
 								class="input-group-btn">

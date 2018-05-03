@@ -115,6 +115,6 @@ public class ProfileBean implements Serializable{
         profile.setHobbies(resultSet.getString("Hobbies"));
         profile.setHeight(resultSet.getInt("Height"));
         profile.setWeight(resultSet.getInt("Weight"));
-        profile.setHairColor(resultSet.getString("ProfileID"));
+        profile.setHairColor(resultSet.getString("HairColor"));
 	}
 }

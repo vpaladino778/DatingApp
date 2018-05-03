@@ -56,7 +56,8 @@ public class ProfileDAO {
                 profile.setHobbies(resultSet.getString("Hobbies"));
                 profile.setHeight(resultSet.getInt("Height"));
                 profile.setWeight(resultSet.getInt("Weight"));
-                profile.setHairColor(resultSet.getString("ProfileID"));                ProfileBean signedIn = currentProfile.getProfile();
+                profile.setHairColor(resultSet.getString("HairColor"));                
+                ProfileBean signedIn = currentProfile.getProfile();
                 int age = profile.getAge();
                 if(profile.getOwnerSSN() != signedIn.getOwnerSSN()) {
                     //Check if age is within limits
@@ -67,6 +68,19 @@ public class ProfileDAO {
             }
         }
 		return profiles;
+	}
+	
+	public List<ProfileBean> PerformSearch(String s, List<ProfileBean> list){
+		List<ProfileBean> searchResults = new ArrayList<ProfileBean>();
+		String search = s.toLowerCase().trim();
+		for(ProfileBean p: list) {
+			if(	p.getHobbies().toLowerCase().contains(search) ||
+				p.getHaircolor().toLowerCase().contains(search) ||
+				p.getM_f().toLowerCase().contains(search)) {
+				searchResults.add(p);
+			}
+		}
+		return searchResults;
 	}
 
 }
