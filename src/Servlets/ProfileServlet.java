@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +46,8 @@ public class ProfileServlet extends HttpServlet {
     		request.setAttribute("loggedIn", UserDat.ps1.getProfileID());
             request.getRequestDispatcher("Profiles.jsp").forward(request, response);
     	}catch (SQLException e) {
+    		RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
             throw new ServletException("Cannot obtain profiles from DB", e);
         }
 	}

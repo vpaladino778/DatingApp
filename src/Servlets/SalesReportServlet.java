@@ -44,7 +44,8 @@ public class SalesReportServlet extends HttpServlet{
 			RequestDispatcher rs = request.getRequestDispatcher("/Sales_Report.jsp");
 			rs.forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
 	}  

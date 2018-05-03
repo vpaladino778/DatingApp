@@ -33,7 +33,8 @@ public class DeleteAndReturn extends HttpServlet{
 			EmployeeHome.loadEmployeeHome(request, response, sqlA);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
     }

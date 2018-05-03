@@ -27,7 +27,8 @@ public class SecondProfServlet extends HttpServlet{
 			RequestDispatcher rs = request.getRequestDispatcher("Edit_Profile.html");
 			rs.forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
     }  

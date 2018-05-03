@@ -52,19 +52,22 @@
 							<input type="hidden" name= "SSN" value = "${SSN}">
 							<input type="hidden" name= "wage" value = "${wage}">
 							<input type="hidden" name= "start" value = "${start}">
-							<button type="submit" style="width: 20%; height: 100%;">Record a Date</button>
+							<button type="submit" style="width: 16.66%; height: 100%;">Record a Date</button>
 						</form>
 						<form action="SuggestProfile.html" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Suggest a Profile</button>
+							<button type="submit" style="width: 16.66%; height: 100%;">Suggest a Profile</button>
 						</form>
 						<form action="deleteprofile" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Ban Customer</button>
+							<button type="submit" style="width: 16.66%; height: 100%;">Ban Customer</button>
 						</form>
 						<form action="emaillist" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">List Emails</button>
+							<button type="submit" style="width: 16.66%; height: 100%;">List Emails</button>
+						</form>
+						<form action="likeslist" method="post" class="text-center">
+							<button type="submit" style="width: 16.66%; height: 100%;">List of Likes</button>
 						</form>
 						<form action="login.html" method="post" class="text-center">
-							<button type="submit" style="width: 20%; height: 100%;">Logout</button>
+							<button type="submit" style="width: 16.66%; height: 100%;">Logout</button>
 						</form>
 					</div>
 				</c:otherwise>
