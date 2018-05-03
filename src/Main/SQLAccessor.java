@@ -1,4 +1,4 @@
-package Main;
+	package Main;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -116,6 +116,11 @@ public class SQLAccessor {
 		ps.setString(1, year);
 		ps.setString(2, month);
 		ps.setString(3, day);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet revenueByCustRep() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT CustRep, BookingFee FROM Date");
 		return ps.executeQuery();
 	}
 	
