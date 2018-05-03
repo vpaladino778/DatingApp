@@ -37,7 +37,7 @@ public class ProfileServlet extends HttpServlet {
     		request.setAttribute("profiles", profiles); // Will be available as ${profile} in JSP
             request.getRequestDispatcher("Profiles.jsp").forward(request, response);
     	}catch (SQLException e) {
-            throw new ServletException("Cannot obtain products from DB", e);
+            throw new ServletException("Cannot obtain profiles from DB", e);
         }
 	}
     

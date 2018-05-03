@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="ISO-8859-1">
-<title>Profiles</title>
+<title>Search Results</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -28,7 +28,7 @@
 				<img src="assets/img/oar.png" width="64"
 					style="display: inline; padding-right: 20px;">
 				<h1
-					style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Discover</h1>
+					style="margin-top: 0px; padding-top: 30px; font-weight: bold; display: inline;">Search Results:</h1>
 				<img src="assets/img/oar.png" width="64"
 					style="display: inline; padding-left: 20px;">
 
@@ -41,29 +41,14 @@
 			<div class="col-sm">
 				<form action="openhome" method="post" class="text-center">
 					<input type="hidden" name="Username" value="${loggedIn}" />
-					<button type="submit" style="width: 33%; height: 100%;">Return</button>
+					<button type="submit" style="width: 50%; height: 100%;">Return</button>
 				</form>
 			</div>
 
 			<div class="col-sm">
 				<form action="login.html" method="post" class="text-center">
-					<button type="submit" style="width: 33%; height: 100%;">Logout</button>
+					<button type="submit" style="width: 50%; height: 100%;">Logout</button>
 				</form>
-			</div>
-			<div class="col-sm">
-				<div id="custom-search-input">
-					<div class="input-group">
-						<form action="search" method="post">
-							<input type="text" class="form-control input-lg"
-								name="searchField" placeholder="Search" /> <span
-								class="input-group-btn">
-								<button class="btn btn-info btn-lg" type="button">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</span>
-						</form>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -77,7 +62,7 @@
 		<div class="row">
 			<div class="col">
 				<ul>
-					<c:forEach items="${profiles}" var="profile">
+					<c:forEach items="${searchResults}" var="profile">
 
 						<div class="container">
 							<div class="row">

@@ -24,6 +24,7 @@ public class Validate {
 					String SSN = rs.getString("SSN");
 					UserDat.ps1.setSSN(SSN);
 					UserDat.ps1.setEmail(email);
+					
 		}catch(Exception e)
 		{
 			e.printStackTrace();
