@@ -43,7 +43,7 @@
 				</c:forEach>
 
 			</form>
-			<form action = "second_prof.html" class="createProfFrm">
+			<form class="createProfFrm">
 				<div class="text-center newProfiles">
 					<input id="newProfile" class="btn btn-med btn-primary btn-block bttnProf" onClick="goBack()" name="CancelDelete" value="Cancel">
 				</div>
