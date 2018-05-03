@@ -49,7 +49,7 @@
 				<form action="likeeslikers" method="post" class="text-center">
 					<button type="submit" style="width: 14.28%; height: 100%;">Likers-Likees</button>
 				</form>
-				<form action="refsug" method="post" class="text-center">
+				<form action="rfsb" method="post" class="text-center">
 					<button type="submit" style="width: 14.28%; height: 100%;">Refferrals-Suggestions</button>
 				</form>
 				<form action="viewprivate" method="post" class="text-center">

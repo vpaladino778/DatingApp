@@ -410,11 +410,38 @@ public class SQLAccessor {
 	 * @param likee ProfileID of the person being liked
 	 * @throws SQLException
 	 */
+	
+	public ResultSet viewReferred(String Profile) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Referral WHERE ProfileB=? OR ProfileC=?");
+		ps.setString(1, Profile);
+		ps.setString(2, Profile);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet viewSuggestedBy(String Profile) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM SuggestedBy WHERE Profile1=? OR Profile2=?");
+		ps.setString(1, Profile);
+		ps.setString(2, Profile);
+		return ps.executeQuery();
+	}
+	
 	public void likeProfile(String liker, String likee) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Likes (Liker, Likee, Date_Time) VALUES (?, ?, NOW())");
 		ps.setString(1, liker);
 		ps.setString(2, likee);
 		ps.executeUpdate();
+	}
+	
+	public ResultSet viewLiked(String liker) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Likes WHERE Liker=?");
+		ps.setString(1, liker);
+		return ps.executeQuery();
+	}
+	
+	public ResultSet viewLikee(String likee) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Likes WHERE Likee=?");
+		ps.setString(1, likee);
+		return ps.executeQuery();
 	}
 	
 	public void refferProfile(String profileA, String profileB, String profileC) throws SQLException {
@@ -426,14 +453,14 @@ public class SQLAccessor {
 	}
 	
 	public ResultSet viewPendingDates(String profile1) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time >= NOW() AND Profile1=? OR Profile2=?");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE (Profile1=? OR Profile2=?) AND Date_Time >= NOW()");
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
 		return ps.executeQuery();
 	}
 	
 	public ResultSet viewPastDates(String profile1) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE Date_Time < NOW() AND Profile1=? OR Profile2=?");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Date WHERE (Profile1=? OR Profile2=?) AND Date_Time < NOW()");
 		ps.setString(1, profile1);
 		ps.setString(2, profile1);
 		return ps.executeQuery();
