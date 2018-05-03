@@ -25,7 +25,7 @@
 		<h2 class="form-signin-heading" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please enter employee info</h2>
 	</div>
 	<br>
-	<form class="form-add_employee signInFrm" method="post" action="">
+	<form class="form-add_employee signInFrm" method="post" action="addemployee">
         <div class = "form-group">
 			<label for="empSSN" class = "sr-only">SSN</label>
 			<input type="text" id="empSSN" name="empSSN" class="form-control" placeholder="SSN" required autofocus>
@@ -71,16 +71,10 @@
 			<input type="text" id="empRole" name="empRole" class="form-control" placeholder="Role" required autofocus>
 		</div>
 		<div class = "form-group">
-			<label for="empStart" class = "sr-only">Start Date</label>
-			<input type="text" id="empStart" name="empStart" class="form-control" placeholder="Start Date (YYYY-MM-DD)" required autofocus>
-		</div>
-		<div class = "form-group">
 			<label for="empHR" class = "sr-only">Hourly Rate</label>
 			<input type="text" id="empHR" name="empHR" class="form-control" placeholder="Hourly Rate" required autofocus>
 		</div>
-        
-        
-        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Sign in</button>
+        <button class="btn btn-primary btn-block bttnSignIn" type="submit">Add Employee</button>
      </form>
 </div>
 
