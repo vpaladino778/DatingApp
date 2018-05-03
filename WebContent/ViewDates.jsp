@@ -37,20 +37,27 @@
 			</div>
 	
 		</div>
+		
+		
+		
 		<div class="pastDateDiv">
-		<c:forEach items="${pastDates}" var="pastDate">
-		<div class="pastDateCard">
+		
 			<div class="btnManager text-center" style="width: 100%; margin:0 auto;">
 				<div class="btn-group btnStyle" style="width: 100%; margin: 0 auto;">
-					<form action="" method="post" class="text-center">
-						<button type="button" style="width: 50%;" onClick="">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					<form action="commentdate.html" method="post" class="text-center">
+						<button type="submit" style="width: 50%;" onClick="">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
 					</form>
-					<form action="" method="post" class="text-center">
-						<button type="button" style="width: 50%;" onClick="">Rate<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					<form action="ratedate.jsp" method="post" class="text-center">
+						<button type="submit" style="width: 50%;" onClick="">Rate<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
 					</form>
 				</div>
 	
 			</div>
+		
+		
+		<c:forEach items="${pastDates}" var="pastDate">
+		<div class="pastDateCard">
+			
 		
 			<table>
 				<tr>
@@ -71,29 +78,30 @@
 					<td>Their Rating</td>
 					<td>${pastDate.otherRating}</td>
 				</tr>
+				<tr>
+					<td>Profile1</td>
+					<td>${pastDate.profile1}</td>
+					<td>Profile2</td>
+					<td>${pastDate.profile2}</td>
+				</tr>
 			</table>
     	</div>
 		</c:forEach>
 		</div>
 		<div class="pendingDateDiv">
-		<c:forEach items="${pendingDates}" var="pendingDate">
-		<div class="pendingDateCard">
 			<div class="btnManager text-center" style="width: 100%; margin:0 auto;">
 				<div class="btn-group btnStyle" style="width: 100%; margin: 0 auto;">
-					<form action="" method="post" class="text-center">
-						
-						<button type="button" style="width: 50%;">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					<form action="commentdate.html" method="post" class="text-center">
+						<button type="submit" style="width: 50%;">Comment<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
 					</form>
-					<form action="canceldate" method="post" class="text-center">
-						<input type="hidden" name="cancelOtherUser" value="${pendingDate.otherUser}">
-						<input type="hidden" name="cancelProfile1" value="${pendingDate.profile1}">
-						<input type="hidden" name="cancelProfile2" value="${pendingDate.profile2}">
-						<input type="hidden" name="cancelDateTime" value="${pendingDate.dateTime}">		
-						<button type="button" style="width: 50%;">Cancel<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
+					<form action="canceldate.html" method="post" class="text-center">	
+						<button type="submit" style="width: 50%;">Cancel<span class="glyphicon glyphicon-arrow-down" style="padding-left: 10px;"></span></button>
 					</form>
 				</div>
-	
-			</div>
+				</div>
+		
+		<c:forEach items="${pendingDates}" var="pendingDate">
+		<div class="pendingDateCard">
 		
 			<table>
 				<tr>

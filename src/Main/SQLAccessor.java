@@ -353,20 +353,38 @@ public class SQLAccessor {
 	//-----------------------------------------------------------------------------------------------
 	// Customer level transactions
 	
-	public void rateDate(String profileRater, String profile1, String profile2, int rating) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("UPDATE DATE SET User1Rating=CASE WHEN Profile1=? "
+	public void rateDate(String profileRater, String profile1, String profile2, int rating, String Date) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("UPDATE Date SET User1Rating=CASE WHEN Profile1=? "
 				+ "THEN ? ELSE User1Rating END, User2Rating=CASE WHEN Profile2=? THEN ? "
 				+ "ELSE User2Rating END WHERE Profile1=? AND Profile2=? AND Date_Time=?");
+		
+		//USerDat, rating, USERDAT, rating prof1, prof2
 		ps.setString(1, profileRater);
 		ps.setInt(2,rating);
 		ps.setString(3, profileRater);
 		ps.setInt(4, rating);
 		ps.setString(5, profile1);
 		ps.setString(6, profile2);
-		Date date = new Date();
-		Object param = new java.sql.Timestamp(date.getTime());
-		ps.setObject(7, param);
+		ps.setObject(7, Date);
 		ps.executeUpdate();
+	}
+	
+	public boolean now(String date, String profile1, String profile2) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT Date_Time FROM Date WHERE Date.Date_Time < ? AND Date.Profile1=? AND Date.Profile2=?");
+		ps.setString(1, date);
+		ps.setString(2, profile1);
+		ps.setString(3, profile2);
+		ResultSet rs = ps.executeQuery();
+		return rs.next();
+	}
+	
+	public boolean past(String date, String profile1, String profile2) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT Date_Time FROM Date WHERE Date.Date_Time >= ? AND Date.Profile1=? AND Date.Profile2=?");
+		ps.setString(1, date);
+		ps.setString(2, profile1);
+		ps.setString(3, profile2);
+		ResultSet rs = ps.executeQuery();
+		return rs.next();
 	}
 	
 	public void makeDate(String profile1, String profile2, String date) throws SQLException {
