@@ -18,6 +18,16 @@
 	
 
 	<servlet>
+		<servlet-name>referprof</servlet-name>
+		<servlet-class>Servlets.ReferProfServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>referprof</servlet-name>
+		<url-pattern>/referprof</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>suggestprof</servlet-name>
 		<servlet-class>Servlets.SuggestProfServlet</servlet-class>
 	</servlet>
