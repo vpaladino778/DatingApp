@@ -48,16 +48,19 @@
 					<div class="btn-group btnStyle" style="width: 100%;">
 
 						<form action="recorddate" method="post" class="text-center">
-							<button type="submit" style="width: 25%; height: 100%;">Record a date</button>
+							<button type="submit" style="width: 20%; height: 100%;">Record a Date</button>
 						</form>
-						<form action="profile_ban.html" method="post" class="text-center">
-							<button type="submit" style="width: 25%; height: 100%;">Ban Customer</button>
+						<form action="suggestprofile" method="post" class="text-center">
+							<button type="submit" style="width: 20%; height: 100%;">Suggest a Profile</button>
+						</form>
+						<form action="deleteprofile" method="post" class="text-center">
+							<button type="submit" style="width: 20%; height: 100%;">Ban Customer</button>
 						</form>
 						<form action="emaillist" method="post" class="text-center">
-							<button type="submit" style="width: 25%; height: 100%;">List emails</button>
+							<button type="submit" style="width: 20%; height: 100%;">List Emails</button>
 						</form>
 						<form action="login.html" method="post" class="text-center">
-							<button type="submit" style="width: 25%; height: 100%;">Logout</button>
+							<button type="submit" style="width: 20%; height: 100%;">Logout</button>
 						</form>
 					</div>
 				</c:otherwise>

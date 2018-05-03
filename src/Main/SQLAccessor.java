@@ -222,6 +222,11 @@ public class SQLAccessor {
 		}
 	}
 	
+	public ResultSet getAllProfiles() throws SQLException {
+		PreparedStatement ps = con.prepareStatement("SELECT ProfileID FROM Profile");
+		return ps.executeQuery();
+	}
+	
 	public void recordDate(String p1, String p2, String cr, String location, int booking) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("INSERT INTO Date(Profile1, Profile2, CustRep, Date_Time, Location, BookingFee) VALUES (?,?,?,?,?,?)");
 		ps.setString(1, p1);

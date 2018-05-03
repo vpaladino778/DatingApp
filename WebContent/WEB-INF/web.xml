@@ -9,6 +9,26 @@
 
 
 	<servlet>
+		<servlet-name>deleteprofile</servlet-name>
+		<servlet-class>Servlets.DeleteProfileListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteprofile</servlet-name>
+		<url-pattern>/deleteprofile</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>deleteprof2</servlet-name>
+		<servlet-class>Servlets.DeleteProfileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteprof2</servlet-name>
+		<url-pattern>/deleteprof2</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
 		<servlet-name>sales</servlet-name>
 		<servlet-class>Servlets.SalesReportServlet</servlet-class>
 	</servlet>
