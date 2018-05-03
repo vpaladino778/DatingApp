@@ -76,7 +76,7 @@ public class ProfileDAO {
 		for(ProfileBean p: list) {
 			if(	p.getHobbies().toLowerCase().contains(search) ||
 				p.getHaircolor().toLowerCase().contains(search) ||
-				p.getM_f().toLowerCase().contains(search)) {
+				p.getM_f().toLowerCase().equals(search)) {
 				searchResults.add(p);
 			}
 		}
