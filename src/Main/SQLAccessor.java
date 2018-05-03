@@ -417,12 +417,11 @@ public class SQLAccessor {
 		ps.executeUpdate();
 	}
 	
-	public void refferProfile(String profileA, String profileB, String profileC, String date) throws SQLException {
-		PreparedStatement ps = con.prepareStatement("INSERT INTO Referral (ProfileA, ProfileB, ProfileC, Date_Time) VALUES (?, ?, ?, ?)");
+	public void refferProfile(String profileA, String profileB, String profileC) throws SQLException {
+		PreparedStatement ps = con.prepareStatement("INSERT INTO Referral (ProfileA, ProfileB, ProfileC, Date_Time) VALUES (?, ?, ?, NOW())");
 		ps.setString(1, profileA);
 		ps.setString(2, profileB);
 		ps.setString(3, profileC);
-		ps.setString(4, date);
 		ps.executeUpdate();
 	}
 	
