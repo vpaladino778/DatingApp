@@ -69,7 +69,7 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>deleteemp2</servlet-name>
-		<url-pattern>/deleteemp</url-pattern>
+		<url-pattern>/deleteemp2</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>deleteemployee</servlet-name>
