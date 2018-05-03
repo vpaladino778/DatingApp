@@ -18,6 +18,15 @@
 	
 
 	<servlet>
+		<servlet-name>recorddate</servlet-name>
+		<servlet-class>Servlets.RecordDateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>recorddate</servlet-name>
+		<url-pattern>/recorddate</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>deleteprofile</servlet-name>
 		<servlet-class>Servlets.DeleteProfileListServlet</servlet-class>
 	</servlet>

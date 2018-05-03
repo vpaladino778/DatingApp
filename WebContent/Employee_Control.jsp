@@ -47,7 +47,11 @@
 				<c:otherwise>
 					<div class="btn-group btnStyle" style="width: 100%;">
 
-						<form action="recorddate" method="post" class="text-center">
+						<form action="RecordDate.html" method="post" class="text-center">
+							<input type="hidden" name= "role" value = "${role}">
+							<input type="hidden" name= "SSN" value = "${SSN}">
+							<input type="hidden" name= "wage" value = "${wage}">
+							<input type="hidden" name= "start" value = "${start}">
 							<button type="submit" style="width: 20%; height: 100%;">Record a Date</button>
 						</form>
 						<form action="suggestprofile" method="post" class="text-center">
