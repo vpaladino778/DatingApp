@@ -29,6 +29,35 @@
 	
 	
 	<servlet>
+		<servlet-name>commentdate</servlet-name>
+		<servlet-class>Servlets.CommentDateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>commentdate</servlet-name>
+		<url-pattern>/commentdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>canceldate</servlet-name>
+		<servlet-class>Servlets.CancelDateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>canceldate</servlet-name>
+		<url-pattern>/canceldate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ratedate</servlet-name>
+		<servlet-class>Servlets.RateDateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ratedate</servlet-name>
+		<url-pattern>/ratedate</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
 		<servlet-name>rfsb</servlet-name>
 		<servlet-class>Servlets.ViewRFSBServlet</servlet-class>
 	</servlet>
