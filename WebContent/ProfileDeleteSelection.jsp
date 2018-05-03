@@ -16,18 +16,18 @@
 	</head>
 	<body  style="height:100%;">
 		<div class="page-header pheader">
-  			<h1 style="margin-top: 0px; font-weight:bold;">Employee Deletion</h1>
-  			<h3 style="margin-top: 0px; font-weight:bold;">Only delete employees not working for Rower's Meet</h3>
+  			<h1 style="margin-top: 0px; font-weight:bold;">Customer Deletion</h1>
+  			<h3 style="margin-top: 0px; font-weight:bold;">Delete Customers that Don't Follow the Terms of Service</h3>
 		</div>
 		<div id="profileList" class="container text-center">
 			
 			<div class="selectProf">
-				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select an employee</h2>
+				<h2 class="selectProfh2" style="background-color: #900; margin-top:0px; padding-top:10px; padding-bottom:10px; color:#fff;">Please select a profile</h2>
 			</div>
 			
-			<form action="deleteemp2" method="post" class="text-center selectProfFrm">		
-				<c:forEach var="employees" items="${eList}">
-					<input id="employee" class="btn btn-lg btn-primary btn-block bttnProf" type="Submit" name="Employee" value="${employees}">
+			<form action="deleteprof2" method="post" class="text-center selectProfFrm">
+				<c:forEach var="profile" items="${pList}">
+					<input id="profile" class="btn btn-lg btn-primary btn-block bttnProf" type="Submit" name="Profile" value="${profile}">
 				</c:forEach>
 
 			</form>
