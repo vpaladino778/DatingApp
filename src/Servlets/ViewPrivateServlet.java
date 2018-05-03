@@ -45,7 +45,8 @@ public class ViewPrivateServlet extends HttpServlet{
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/privateinfo.jsp");
 		        dispatcher.forward(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+				rd.forward(request, response);
 				e.printStackTrace();
 			}
 	        

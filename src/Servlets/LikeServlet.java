@@ -31,7 +31,8 @@ public class LikeServlet extends HttpServlet {
 		try {
 			accessor.likeProfile(likerProfile, likeeProfile);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
 

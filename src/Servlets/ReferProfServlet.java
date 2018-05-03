@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +29,8 @@ public class ReferProfServlet extends HttpServlet{
 			sqlA.refferProfile(UserDat.ps1.getProfileID(), prof1, prof2);
 			MainHome.profileHome(request, response,0);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
 

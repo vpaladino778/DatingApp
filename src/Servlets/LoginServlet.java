@@ -42,7 +42,8 @@ public class LoginServlet extends HttpServlet{
 			            rs.forward(request, response);
 					}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+					rd.forward(request, response);
 					e.printStackTrace();
 				}
 	            

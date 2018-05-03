@@ -22,7 +22,7 @@ public class HomePageServlet extends HttpServlet{
 	            throws ServletException, IOException {
 	        response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();
-	        MainHome.profileHome(request, response,1);
+	        MainHome.profileHome(request, response, 1);
 	    }  
 
 }

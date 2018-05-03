@@ -38,7 +38,8 @@ public class EmailListServlet extends HttpServlet{
 			RequestDispatcher rs3 = request.getRequestDispatcher("/ContactList.jsp");
 			rs3.forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
 	}  

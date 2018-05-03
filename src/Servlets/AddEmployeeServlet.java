@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +37,8 @@ public class AddEmployeeServlet extends HttpServlet{
 			sqlA.newEmployee(empSSN, empRole, empHR, empPass, empFirst, empLast, empEmail, empStreet, empCity, empState, empZip, empPhone);
 			EmployeeHome.loadEmployeeHome(request, response, sqlA);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
         

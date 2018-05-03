@@ -30,7 +30,8 @@ public class DeleteEmployeeServlet extends HttpServlet{
 		        RequestDispatcher rs = request.getRequestDispatcher("/EmployeeSelection.jsp");
 		        rs.forward(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				RequestDispatcher rd = request.getRequestDispatcher("InvalidInput.html");
+				rd.forward(request, response);
 				e.printStackTrace();
 			}
 	       
