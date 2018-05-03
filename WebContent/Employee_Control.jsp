@@ -54,7 +54,7 @@
 							<input type="hidden" name= "start" value = "${start}">
 							<button type="submit" style="width: 20%; height: 100%;">Record a Date</button>
 						</form>
-						<form action="suggestprofile" method="post" class="text-center">
+						<form action="SuggestProfile.html" method="post" class="text-center">
 							<button type="submit" style="width: 20%; height: 100%;">Suggest a Profile</button>
 						</form>
 						<form action="deleteprofile" method="post" class="text-center">

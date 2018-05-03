@@ -18,6 +18,16 @@
 	
 
 	<servlet>
+		<servlet-name>suggestprof</servlet-name>
+		<servlet-class>Servlets.SuggestProfServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>suggestprof</servlet-name>
+		<url-pattern>/suggestprof</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>recorddate</servlet-name>
 		<servlet-class>Servlets.RecordDateServlet</servlet-class>
 	</servlet>
