@@ -1,0 +1,117 @@
+@charset "ISO-8859-1";
+@charset "ISO-8859-1";
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #fffffa;
+}
+
+.btnManager {
+	background-color: #890000;
+}
+
+.likesYouDiv {
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.yourLikesDiv {
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.likesYouCard{
+	margin: 0 auto;
+	border: 1px solid #900;
+	background-color: #fff;
+	border-radius: 0px 0px 20px 20px;
+	margin-top: 30px;
+	width: 90%;
+}
+
+.yourLikesCard {
+	margin: 0 auto;
+	border: 1px solid #900;
+	background-color: #fff;
+	border-radius: 0px 0px 20px 20px;
+	margin-top: 30px;
+	width: 90%;
+}
+
+table {
+	margin: 0 auto;
+	text-align: left;
+}
+.tableDiv {
+	margin: 0 auto;
+	border: 1px solid #900;
+	background-color: #fff;
+	border-radius: 0px 0px 20px 20px;
+	margin-bottom: 30px;
+}
+.infoTable {
+	padding-top: 30px;
+	margin: 0 auto;
+}
+td {
+	padding: 10px;
+	padding-left: 15px;
+}
+th {
+	padding: 10px;
+	padding-left: 15px;
+	font-size: 30px;
+}
+
+.centerContent {
+	margin-top: 30px;
+	border-radius: 0px 0px 20px 20px;
+	border: 1px solid #890000;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.toggleTitle {
+	color: white; 
+	margin-top: 0px; 
+	padding-top:10px; 
+	margin-bottom: 0px; 
+	padding-bottom: 10px;
+}
+
+.dateHeader {
+	color: #fff;
+	background-color: #890000;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+
+.btn-group button {
+	border: 0px;
+    background-color: #900; /* Green background */
+    border: 1px solid #890000; 
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:last-child:not(:only-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #7a0000;
+}
