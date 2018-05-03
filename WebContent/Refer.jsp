@@ -40,7 +40,7 @@
 					id="prof1" name="prof1" class="form-control" placeholder="Profile 1"
 					required autofocus>
 			</div>
-			<input type="hidden" name="profile2" value = "${profile2}"/>
+			<input type="hidden" name="profile2" value = "${param.profile2}"/>
 			<button class="btn btn-primary btn-block bttnSignIn" type="submit">Submit</button>
 		</form>
 
